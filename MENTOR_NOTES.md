@@ -1,0 +1,270 @@
+# Mentor Working Notes: 2026-Rebuilt Codebase
+
+Working notes from an investigation of the Spartronics 4915 robot code, started 2026-09-25.
+Purpose: get oriented in the codebase as a new programming mentor, record what has been
+learned, and track concrete opportunities to contribute. Update as understanding deepens.
+
+---
+
+## 1. Codebase Overview
+
+About 11,000 lines of Java under `src/main/java/com/spartronics4915/frc2026`. It is a
+WPILib command-based robot built on CTRE Phoenix 6 swerve (`SwerveDrivetrain`), BLine and
+PathPlanner path following, Phoenix 6 motor controllers, and a turreted ball shooter.
+(The YAGSL vendordep and `src/main/deploy/swerve/` JSON are still in the repo but unused; see §2.)
+
+**Design pattern.** Each mechanism is a small, state-holding subsystem that knows nothing
+about the game. The intelligence lives in a few coordinator classes that read robot pose and
+drive the mechanisms automatically.
+
+### Entry and wiring
+- `Main`, `Robot`, `RobotContainer`: standard WPILib scaffolding. `RobotContainer`
+  instantiates every subsystem, the auto factories, and controller bindings (see README).
+- `Constants.java` (~900 lines): all tuning values, motor IDs, PID gains, field geometry.
+
+### Mechanisms (`subsystems/mechanisms`)
+Each is a `SubsystemBase` with an enum of states or clamps, a SysId routine, and dashboard
+buttons.
+
+| Subsystem | Role | Control type |
+|---|---|---|
+| `IntakeSubsystem` | Roller intake | Velocity (torque-current) |
+| `PivotSubsystem` | Arm that swings the intake out and back | Position (torque-current) |
+| `IndexerSubsystem` | Spindexer, first stage of ball path | Velocity (torque-current) |
+| `FeederSubsystem` | Feeds balls into the shooter | Velocity (torque-current) |
+| `ShooterSubsystem` | Flywheel, lead + follower motor | Velocity (voltage) |
+| `TurretSubsystem` | Rotates the shooter head; publishes timestamped angle to vision | Position (torque-current) |
+| `HoodSubsystem` | Sets shot pitch | Position (torque-current) |
+| `ClimberSubsystem` | Present but commented out, marked `!CLIMBER!` | Position (voltage) |
+
+### Swerve (`subsystems/swerve`)
+- `SwerveSubsystem` wraps CTRE Phoenix 6 `SwerveDrivetrain` (not YAGSL, despite the
+  vendordep). Module config is Java: the `SwerveConfigurations` enum and `compChassisFactory()`
+  in `Constants.java`. Owns the pose estimator. Path following uses BLine `FollowPath`.
+  The YAGSL JSON under `src/main/deploy/swerve/` is never loaded (dead config).
+- `util/swerve/SlipDetector` flags wheel slip or collisions by comparing commanded and
+  measured module velocities.
+
+### Vision (`subsystems/vision`)
+The most layered part of the code.
+- Two camera backends, `LimelightProcessor` and `PhotonProcessor`, behind a common
+  `ProcessorInterface`.
+- Results pass through `filters/`, get weighted by `StdDevCalculator`, and are fused by
+  `PoseFusionEngine` (written for zero allocation in the periodic loop) into one AprilTag
+  pose estimate that feeds the swerve pose estimator.
+
+### Control layer (`subsystems/control`) — the interesting part
+- `AutoAimController` runs every loop tick and calls the `AutoAim` solver
+  (`util/control/AutoAim.java`). `TurretController` converts the solver's field-relative yaw
+  into a turret setpoint with wrap handling and hysteresis.
+- `Superstructure` divides the field into zones (alliance zone, trench, bump, tower, neutral
+  zone, opponent zone) via `FieldZoneMap`. It uses WPILib Triggers to schedule
+  `SuperstructureCommands` automatically as the robot crosses zones, for example lowering
+  the hood before entering the trench based on velocity-projected position. Also reads a
+  LaserCAN sensor for ball detection.
+
+### Autonomous (`autos`)
+Composable segments rather than fixed routines. Factories: `ZoneTransition`, `DriveToPOI`,
+`NeutralZoneAutos`, `PreAlignment`. `ComplexAutoChooser` exposes them on the Elastic
+dashboard as a chain of steps where each step constrains valid next steps. `Autos` has a
+survey mode that renders the planned path on a Field2d for verification.
+
+### Utilities (`util`)
+Per-mode speed limiting, a mode-switch handler so subsystems reset on enable, `BumpSim`
+for simulating the field bump, `TimeVarianceAuthority`, and a large vendored
+`LimelightHelpers`.
+
+**Best files to read first:** `AutoAim.java` (ballistics) and `Superstructure.java`
+(zone-driven automation).
+
+---
+
+## 2. PID Calibration
+
+### The concept
+PID is the feedback loop that makes a mechanism hold a target. Each tick, error = setpoint
+minus measurement, and output is a weighted sum:
+- **P**: push harder the further from target. Too high overshoots and oscillates.
+- **I**: accumulate error to remove persistent offset. Usually zero in FRC (windup risk).
+- **D**: react to rate of change of error; damps oscillation.
+
+**Feedforward** predicts the needed output from a physics model so PID only cleans up
+residuals:
+
+```
+output = kS * sign(v) + kV * v + kA * a  (+ kG for gravity on arms)
+```
+
+**Calibration** means finding these constants for the physical mechanism:
+1. Manual tuning: raise P until oscillation, back off, add D.
+2. System identification (SysId): drive with known profiles, log voltage/position/velocity/
+   acceleration, fit kS/kV/kA by regression in the WPILib SysId desktop tool, which also
+   suggests PID gains. Two test types per direction:
+   - **Quasistatic**: slow voltage ramp, isolates kS and kV.
+   - **Dynamic**: voltage step, isolates kA.
+
+### How it appears in this codebase
+- **Gains are hard-coded, not learned at runtime.** Each mechanism has a block in
+  `Constants.java`, e.g. `ShooterConstants` with P=0.46, V=0.115, S=0.22, A=30000
+  (the A value looks like a placeholder or unit mismatch; worth asking about).
+- **Loops run on the motor controller.** Gains are Phoenix 6 `SlotConfigs` applied to
+  TalonFX motors in each subsystem constructor. The roboRIO only sends setpoints; the
+  motor firmware runs PID + feedforward at 1 kHz.
+- **Swerve gains live in one place: `compChassisFactory()` in `Constants.java`** (steer
+  P=110, D=5, kS=0.1, kV=2.49, voltage output; drive P=9, kS=1, kV=0.124, *TorqueCurrentFOC*
+  output, so drive gains are in amps). These are Phoenix 6 `Slot0Configs` passed to CTRE's
+  `SwerveModuleConstantsFactory`. The YAGSL `pidfproperties.json` files are dead (resolved
+  2026-10-01).
+- **Chassis pose loops on the roboRIO**: `translationPID`, `rotationPID`, `crossTrackPID`
+  in `Constants.java` are WPILib `PIDController`s correcting pose error during PathPlanner
+  following. Their output becomes velocity setpoints for the swerve loops.
+- **SysId is fully wired.** Seven mechanisms each construct a `SysIdRoutine` and publish
+  four dashboard buttons (Quasistatic/Dynamic × Forward/Reverse). An `isCharacterizing`
+  flag suppresses the normal `periodic` loop during a test.
+- **Unit caveat.** Mechanisms using `*TorqueCurrentFOC` control requests have gains in
+  amps, not volts. Their P/kS/kV constants are not comparable to the shooter's, which uses
+  `VelocityVoltage`. The shooter's SysId routine drives with `TorqueCurrentFOC` and logs
+  torque current in the voltage field, so its fitted constants would be in amps. **Confirmed
+  inconsistent (2026-10-01):** runtime is `VelocityVoltage` (gains in volts), SysId drives
+  `TorqueCurrentFOC` with a 4 "V" step that is really 4 A. A SysId fit from this routine
+  cannot be pasted into `ShooterConstants` as-is.
+- **Shooter `A = 30000` is currently inert.** The code only calls
+  `velocityVoltage.withVelocity(...)`, never `withAcceleration`, so the requested
+  acceleration is 0 and kA contributes nothing. It becomes a trap the moment someone adds an
+  acceleration feedforward (30000 V per rps² would saturate instantly). The setpoint is
+  shaped instead by a `SlewRateLimiter` (decel limit only, `maxShooterDecel = -12` rps/s).
+
+### The implied calibration workflow
+1. Deploy code, open Elastic.
+2. Press the four SysId buttons for a mechanism; data logs to a WPILog on the roboRIO.
+3. Pull the log, load in the WPILib SysId tool, fit constants.
+4. Enter results in `Constants.java`, redeploy, hand-tune P and D.
+
+### What is being calibrated, and why it matters for shooting
+Position loops: turret, hood, intake pivot, climber, four swerve steer motors.
+Velocity loops: shooter flywheel, four swerve drive motors, intake rollers, indexer, feeder.
+Pose loops: translation, rotation, cross-track for path following.
+
+For shooting accuracy, four loops matter and accuracy is limited by the weakest:
+1. Turret position (point the right way)
+2. Hood position (right pitch)
+3. Shooter velocity (right launch speed, fast recovery after each ball)
+4. Swerve odometry feeding the solver, which depends on drive and steer loops tracking well
+
+---
+
+## 3. The AutoAim Solver
+
+`util/control/AutoAim.java` solves an inverse ballistics problem: given robot state and a
+target point, find launch yaw, pitch, and speed so a projectile from a moving turret lands on
+target. Structure:
+
+**Inner problem: static aim, closed form.** With a stationary robot, launch pitch θ at speed
+v, horizontal distance x, height h satisfies a quadratic in tan θ:
+
+```
+(g x² / 2v²) tan²θ − x tanθ + (h + g x² / 2v²) = 0
+```
+
+Zero, one, or two roots (low and high arcs). Each is checked against hood angle bounds and
+two collision maps (predicates over ground-frame pitch and speed encoding whether the shot
+clears the hub; one padded 5 cm, one 20 cm). Among feasible roots the flattest arc is chosen.
+
+**Grid search for recommended speed.** Independently, sweep pitch from 50° to 90° in 50
+steps, compute minimum speed to hit target at each, take the first feasible. Provides a
+flywheel speed setpoint, and a fallback when the quadratic has no feasible root at current
+speed (flagged `requiresIdealSpeed`).
+
+**Outer problem: moving robot, fixed-point iteration.** Aim at a virtual target displaced by
+predicted robot motion plus projectile drift, resolve, recompute displacement with new time
+of flight, repeat until change < 1 mm or 20 iterations.
+
+*Why fixed-point iteration is adequate:* the map d → F(d) is a contraction with Lipschitz
+constant L ≈ |v_robot| × |dT/dd|. Time of flight changes only mildly when the target shifts a
+few centimeters over a several-meter shot, so L is well under 0.5 at FRC speeds. Error halves
+or better each step; convergence in a handful of iterations. Newton's quadratic convergence
+is unnecessary. (Would diverge only with L > 1, e.g. absurd robot speeds or 30-second shots.)
+
+**Lookahead for derivative terms.** Solve once more at a slightly later predicted state
+(20 ms) and finite-difference yaw and pitch to get angular velocity setpoints for the turret
+and hood. This is where the solver output meets the PID feedforward.
+
+**Pipeline per tick:** odometry + vision → pose/velocity → `AutoAimController` → solver →
+yaw, pitch, speed and rates → turret/hood/shooter loops. The solver decides where to point;
+PID makes the hardware get there.
+
+**Character of the problem.** This is a feasibility problem with heuristic selection rules
+("flattest feasible arc", "first feasible pitch in sweep"), not an optimization. No explicit
+objective. Reasonable given the 20 ms compute budget.
+
+---
+
+## 4. Opportunities to Contribute
+
+Ordered roughly by value. Items 1 through 6 are solver improvements; the rest are broader.
+
+### Solver improvements
+1. **Choose the arc that is most robust, not the flattest.** The flat arc has the lowest time
+   of flight but enters the hub at the shallowest angle, so it is most sensitive to speed
+   error. ∂x/∂v has a closed form for a parabola. Choose the arc minimizing landing
+   sensitivity to flywheel error, weighted by measured flywheel variance. One line of algebra,
+   and it directly connects PID calibration quality to the aiming decision. The data to
+   justify it is already logged by the shooter's velocity and setpoint publishers.
+   **This is the one to pitch to the team first.**
+2. **Replace the pitch sweep with root finding.** The minimum-speed pitch has a closed form;
+   if the collision constraint makes it infeasible, bisect on the constraint boundary. Exact
+   answers instead of 0.8° granularity, and cheaper than 50 evaluations.
+3. **Let flywheel speed float toward the recommended value.** Today yaw/pitch are solved for
+   the current speed and the recommended speed is only a fallback. With hood and speed as
+   two degrees of freedom for one target there is a one-parameter family of solutions.
+   Choosing speed to minimize recovery time between shots, or to keep the hood mid-range,
+   is a small problem that reduces to picking a point on a curve.
+4. **Warm-start the fixed-point iteration** from the previous tick's displacement. The
+   controller runs at 50 Hz and d* barely changes between ticks. Trivial, pure compute win.
+5. **Damp the lookahead derivative.** yawOmega and pitchOmega come from a finite difference
+   over 20 ms on a chain that includes noisy pose and velocity estimates. A first-order filter
+   or longer horizon would smooth feedforward without meaningful lag.
+6. **Signed-distance collision margin.** Replace two boolean predicates with a single signed
+   distance function and prefer solutions with larger clearance. Turns a binary check into a
+   graded quantity that can be traded off against other criteria.
+
+### Calibration and consistency
+7. **Remove dead YAGSL config.** Swerve is CTRE `SwerveDrivetrain`; the YAGSL vendordep and
+   `deploy/swerve/*.json` are unused and mislead readers (they misled me). Small, safe
+   cleanup PR, good first contribution.
+8. **Fix shooter SysId units / zero out `A`.** Either make SysId drive `VoltageOut` and log
+   motor voltage (matches the `VelocityVoltage` runtime), or switch runtime to
+   `VelocityTorqueCurrentFOC` like the other mechanisms. Set kA to 0 or a fitted value.
+9. **Document the calibration workflow** for students: which buttons, where logs land, how to
+   use the SysId tool, where constants go.
+
+### Mentoring angle
+- The solver is a natural teaching vehicle for students: projectile physics, quadratic roots,
+  fixed-point iteration, and the idea of an objective vs. a feasibility check.
+- PID/SysId calibration is a repeatable, hands-on process students can own each season.
+- Logged shooter data offers a real dataset for a small analysis project (flywheel variance,
+  recovery time between shots).
+
+---
+
+## 5. Open Questions
+
+- ~~Which swerve config path is active?~~ CTRE `SwerveDrivetrain`, gains in `Constants.java`.
+- ~~Is the shooter's runtime control request consistent with its SysId units?~~ No (§2).
+- Do the other six SysId routines have the same volts/amps mislabeling? (Unchecked.)
+- Which do autos use, BLine `FollowPath` or PathPlanner, and when?
+- What is the actual convergence count of the fixed-point loop in match logs? (Would confirm
+  the contraction argument and justify the warm-start change.)
+- How is the collision map derived? Empirical or geometric?
+- What is the measured flywheel speed variance at shot time? Needed for item 1.
+
+---
+
+## 6. Log
+
+- **2026-09-25**: Cloned repo (`stable` branch, HEAD 3977202). Surveyed source tree, mapped
+  subsystems, studied PID/SysId setup and the AutoAim solver. Identified solver improvement
+  opportunities. Created this file.
+- **2026-10-01**: Moved to a cloud session (same commit 3977202). Corrected the swerve stack
+  (CTRE, not YAGSL). Resolved two open questions: swerve gain source, shooter SysId units.
+  Found shooter kA is inert.
