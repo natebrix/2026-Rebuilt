@@ -260,6 +260,45 @@ Ordered roughly by value. Items 1 through 6 are solver improvements; the rest ar
 
 ---
 
+## 7. Reading Plan and Walkthroughs
+
+**Order:** WPILib command-based docs → `Robot` → `RobotContainer` → `IntakeSubsystem` +
+`MotorHelpers` → `PivotSubsystem` → `SuperstructureCommands`/`Superstructure`/`FieldZoneMap` →
+`DriveCommand`/`SwerveSubsystem` → aim stack → vision → autos. `Constants` as reference only;
+skip vendored `LimelightHelpers`. Desktop sim works (`./gradlew simulateJava`). No `src/test`
+exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
+
+### Robot.java (walked 2026-10-02)
+- `TimedRobot` calls mode hooks every 20 ms; mode `*Periodic` runs before `robotPeriodic`.
+- Line 98 `CommandScheduler.run()` is the heartbeat for everything.
+- `robotInit` starts `.wpilog` logging (real robot only) and publishes git SHA/branch/dirty
+  metadata, so every log joins to a commit.
+- `teleopPeriodic` encodes the 2026 hub-shift schedule from FMS game data into static
+  `Robot.hubEnabled` / `Robot.timeUntilSwitch`. `AutoAimController.shouldAutoShoot` (line 360)
+  pre-fires when `timeUntilSwitch < ToF`.
+- Questions: (a) shoot condition is asymmetric: does not stop when hub is about to turn
+  *off* (grace period in rules?); (b) statics are global mutable state, a pure `MatchState`
+  function would be testable; (c) non-R/B game data makes `^=` flip every tick on Blue;
+  (d) `configureStandardDevsForDisabled()` is never called.
+
+### RobotContainer.java (walked 2026-10-02)
+- Composition root: field initializers build subsystems in declaration order, wiring by
+  constructor args and method-reference callbacks (`swerveSubsystem::addVisionMeasurement`,
+  turret → turreted-camera angle observer, feeder ← distance supplier).
+- Three Xbox controllers: driver, operator, debug (debug mostly duplicates the other two).
+- Bindings vocabulary: `onTrue`/`onFalse` (edge), `whileTrue` (level, cancel on release),
+  `Commands.run` (every tick) vs `runOnce`, `parallel`, `defer`, `setDefaultCommand`.
+- Driver bumpers lock robot Y to a trench line (`hubPose ± trenchTransform`) via
+  `setMovementOverride`; 0.0 is a sentinel for "off".
+- Findings: (a) driver POV up/down nudges (lines 170-184) omit the `swerveSubsystem`
+  requirement that left/right and all debug nudges have, so `DriveCommand` keeps running
+  alongside them; works only because the nudge executes later in the tick. One-line fix each.
+  (b) Both operator stick clicks call `pivotSubsystem.resetMechanism(0)`, which jumps the
+  pivot setpoint and profile state to 0; stick clicks are easy to hit by accident.
+  (c) `getAutonomousCommand` defers with requirements `{swerve}` only.
+
+---
+
 ## 6. Log
 
 - **2026-09-25**: Cloned repo (`stable` branch, HEAD 3977202). Surveyed source tree, mapped
@@ -268,3 +307,4 @@ Ordered roughly by value. Items 1 through 6 are solver improvements; the rest ar
 - **2026-10-01**: Moved to a cloud session (same commit 3977202). Corrected the swerve stack
   (CTRE, not YAGSL). Resolved two open questions: swerve gain source, shooter SysId units.
   Found shooter kA is inert.
+- **2026-10-02**: Walked `Robot.java` and `RobotContainer.java` (§7).
