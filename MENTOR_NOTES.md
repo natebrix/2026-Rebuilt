@@ -251,7 +251,9 @@ Ordered roughly by value. Items 1 through 6 are solver improvements; the rest ar
 
 - ~~Which swerve config path is active?~~ CTRE `SwerveDrivetrain`, gains in `Constants.java`.
 - ~~Is the shooter's runtime control request consistent with its SysId units?~~ No (§2).
-- Do the other six SysId routines have the same volts/amps mislabeling? (Unchecked.)
+- ~~Do the other SysId routines have the volts/amps mislabeling?~~ All drive `TorqueCurrentFOC`
+  and log amps in the volts field, but every other mechanism also *runs* torque-current, so
+  units are consistent. The shooter is the only mismatch.
 - Which do autos use, BLine `FollowPath` or PathPlanner, and when?
 - What is the actual convergence count of the fixed-point loop in match logs? (Would confirm
   the contraction argument and justify the warm-start change.)
@@ -297,6 +299,21 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   pivot setpoint and profile state to 0; stick clicks are easy to hit by accident.
   (c) `getAutonomousCommand` defers with requirements `{swerve}` only.
 
+### IntakeSubsystem + MotorHelpers (walked 2026-10-02): the mechanism template
+- Pattern is a reconciliation loop: commands are instant setters (`this.runOnce(...)`, which
+  also claims the subsystem); the desired setpoint lives in a field; `periodic()` clamps it and
+  pushes it to the motor every tick. State lives in the subsystem, not in a running command.
+- Every mechanism has: a `LoggedTalonFX`, a control request object, a SysId routine plus four
+  dashboard buttons with an `isCharacterizing` flag, NetworkTables publishers, a state enum,
+  `setStateCommand`, and `onModeSwitch()` that turns it off on every enable/mode change
+  (`ModeSwitchHandler`, built on `RobotModeTriggers`).
+- `LoggedTalonFX` is a `Sendable`: `SmartDashboard.putData("Intake Motor", motor)` exposes live
+  editable P/I/D/V/A/S, profile limits and a "goal" setpoint on Elastic. Live tuning without
+  redeploy; edits are not saved, so they must be copied back to `Constants`.
+- Intake `A = 75.05` is inert (only `.Velocity` is set; requested acceleration is 0), same as
+  the shooter. Intake has no kS. Supply current limit disabled (`CURRENT_LIMIT_ENABLE = false`).
+- `new VoltageOut(0.0)` allocated each tick when off (shooter preallocates; trivial).
+
 ---
 
 ## 6. Log
@@ -308,3 +325,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   (CTRE, not YAGSL). Resolved two open questions: swerve gain source, shooter SysId units.
   Found shooter kA is inert.
 - **2026-10-02**: Walked `Robot.java` and `RobotContainer.java` (§7).
+- **2026-10-02**: Walked `IntakeSubsystem` and `MotorHelpers`. Resolved SysId units question.
