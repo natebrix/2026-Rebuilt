@@ -354,6 +354,30 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   (d) No gravity feedforward; Phoenix `GravityType.Arm_Cosine` + kG is the standard fix
   (needs 0 = horizontal, which READY ~ 0 suggests).
 
+### Superstructure, SuperstructureCommands, FieldZoneMap (walked 2026-10-04)
+- Two layers: `SuperstructureCommands` = vocabulary (pure factory of compound commands);
+  `Superstructure` = when (zone -> command via Triggers). `FieldZoneMap` = ordered list of
+  predicates, first match wins (TRENCH, BUMP, TOWER, NEUTRAL, ALLIANCE; default OPPONENT),
+  evaluated at the *turret's* field position from the smoothed pose.
+- Trench lookahead: in zone if current pose, pose + 0.5 s velocity, or the segment between
+  them crosses the trench centerline. Lowers hood before the 32 in trench.
+- Zone commands differ only in clamps and auto-shoot: hood RESTRICTED (0 deg) in trench;
+  shooter RESTRICTED (35 rps) in tower/idle/stowed; auto-shoot on only in alliance zone.
+- `conditional*` helpers no-op outside autonomous: in auto, zones drive pivot/intake/aim/shoot;
+  in teleop, zones only set hardware clamps.
+- Interlock: turret UNRESTRICTED only after `isPivotSafe` (pivot <= 100 deg, i.e. not stowed);
+  `stowed()` restricts turret, waits until turret within +/-10 deg, then stows pivot.
+- `getReturnToZoneCommand` defers with empty requirements so it can run alongside
+  `intakeOn()` (operator left trigger).
+- Pose sanity: if pose x < 0 or y outside 0..8.1, reset to vision pose (null-safe). No upper x.
+- Findings: (a) **Zone.TOWER has no trigger**, and `getReturnToZoneCommand` maps it to
+  `idle()`, which sets intake OFF after the pivot deploys and restricts shooter to 35 rps.
+  Operator left trigger in the tower rectangle (~1 m x 1 m between wall and tower) likely
+  starts then kills the intake. Verify in sim. (b) `tower()`, `climb()` unused.
+  (c) LaserCAN ball detection computed and published but `isBallDetectedDebounced()` has no
+  callers; invalid reading counts as "ball present". (d) Five near-identical zone commands:
+  refactor to one builder parameterized by (hoodClamp, shooterClamp, autoShoot).
+
 ---
 
 ## 6. Log
@@ -367,3 +391,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
 - **2026-10-02**: Walked `Robot.java` and `RobotContainer.java` (§7).
 - **2026-10-02**: Walked `IntakeSubsystem` and `MotorHelpers`. Resolved SysId units question.
 - **2026-10-04**: kS discussion, indexer, turret friction analysis, walked `PivotSubsystem`.
+- **2026-10-04**: Walked Superstructure layer; found TOWER-zone return-to-zone issue.
