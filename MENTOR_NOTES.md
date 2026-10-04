@@ -314,6 +314,46 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   the shooter. Intake has no kS. Supply current limit disabled (`CURRENT_LIMIT_ENABLE = false`).
 - `new VoltageOut(0.0)` allocated each tick when off (shooter preallocates; trivial).
 
+### Friction / kS discussion (2026-10-02 to 10-04)
+- Under torque-current control kS/kV model friction: steady current needed = s*sign(v) + c*v.
+  Missing kS leaves error = shortfall / kP.
+- **Single-speed velocity mechanisms (intake, indexer, feeder): kS = 0 is practically
+  irrelevant.** At one operating point kV absorbs kS; kP covers the rest; spin-up is
+  current-saturated; OFF is coast (`VoltageOut(0)`), not a zero-velocity hold.
+- **Indexer defines `S = 1.53135` but `PID_CONFIG` never calls `.withKS(S)`.** Oversight;
+  negligible effect, easy one-line fix.
+- kS by mechanism: hood 37.5 A (applied), shooter 0.22 V, turret/pivot/intake/feeder none.
+- **Turret (kP 3010 A/rot = 8.4 A/deg):** stuck/lag error ~ s/kP, e.g. 5 A -> 0.6 deg -> ~5 cm
+  at 5 m. Firing gate `turretTolerance = 7.5 deg` (AutoAimController.isTurretReady) is far
+  looser, so kS affects accuracy, not whether it fires. Data check: setpoint - position while
+  tracking; plateau whose sign follows rotation direction = s/kP. Also ask why 7.5 deg.
+- Fitting exercise (teaching): coast-down regression a = -(s/J) - (c/J) v from logged rps;
+  steady-state current vs speed needs torque-current publisher and multiple speeds
+  (±22 only is unidentifiable: one equation s + 22c).
+
+### Indexer
+- Ball path: intake -> indexer ("spindexer", hopper) -> feeder -> shooter. Indexer + feeder
+  form the "pipeline" (`SuperstructureCommands.PipelineState`), turned on by
+  `Trigger(controller::isReadyToShoot)` in `Superstructure` and gated by `isShooterReady`.
+- Trap: `setPipelineState` mutates `currentPipelineState` at command *build* time.
+
+### PivotSubsystem (walked 2026-10-04)
+- Position mechanism: absolute CANcoder on arm axle fused with rotor (`FusedCANcoder`), seeded
+  at boot so no homing. States READY -0.1 deg (deployed), SAFE 60, STOW 130; limits -2..132.
+- Trapezoid profile computed on roboRIO each tick (`dtCalc` = measured dt), only `Position`
+  sent to the Talon (profile velocity discarded). No kS, no kG, no kV.
+- `onModeSwitch()` resets setpoint and profile to current position, so the arm holds where it
+  is on enable (profile keeps running while disabled).
+- Findings: (a) profile constraints 100 rot/s, 100 rot/s^2 in *mechanism* rotations: full
+  134 deg travel takes ~0.12 s with a 6 rot/s peak, ~3x what a 50.6:1 Kraken can do
+  (~2 rot/s). Profile is effectively a step; likely meant deg/s or never tuned.
+  (b) `MAGNET_OFFSET = 1.283203` is outside Phoenix's documented [-1, 1) rotation range;
+  check in Tuner X what the CANcoder actually reports (apply status unchecked).
+  (c) `deltaSetpoint` (operator D-pad) bypasses the angle clamp and `periodic` never
+  re-clamps, so holding D-pad can park the setpoint past a hard stop (stall current).
+  (d) No gravity feedforward; Phoenix `GravityType.Arm_Cosine` + kG is the standard fix
+  (needs 0 = horizontal, which READY ~ 0 suggests).
+
 ---
 
 ## 6. Log
@@ -326,3 +366,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   Found shooter kA is inert.
 - **2026-10-02**: Walked `Robot.java` and `RobotContainer.java` (§7).
 - **2026-10-02**: Walked `IntakeSubsystem` and `MotorHelpers`. Resolved SysId units question.
+- **2026-10-04**: kS discussion, indexer, turret friction analysis, walked `PivotSubsystem`.
