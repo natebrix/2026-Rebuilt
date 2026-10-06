@@ -378,6 +378,31 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   callers; invalid reading counts as "ball present". (d) Five near-identical zone commands:
   refactor to one builder parameterized by (hoodClamp, shooterClamp, autoShoot).
 
+### DriveCommand + SwerveSubsystem (walked 2026-10-06)
+- DriveCommand (default command on swerve): stick -> deadband (0.0!) -> |x|^1.5 curve -> scale
+  (maxSpeed 9.12 m/s, 8 rad/s) -> field-centric request. Bumper "trench override" replaces vY
+  with a trapezoid-profiled Y target tracked by a PathPlanner holonomic P controller.
+- Effective behavior is plain field-centric driving: speed-limit modes (HUB/FERRY) commented
+  out, heading lock disabled (`driverIsRotating = true`), align trigger hard-coded false.
+- SwerveSubsystem wraps CTRE `SwerveDrivetrain`, which owns the pose estimator (odometry at
+  120 Hz on CTRE's own thread + Pigeon + latency-compensated vision via
+  `addVisionMeasurement`). `updateOdometry` runs on that thread (hence AtomicBoolean,
+  ConcurrentTimeBuffer, volatile).
+- Slip handling: SlipDetector compares module measured vs target speed; while slipping,
+  odometry std devs go 0.05 -> 2.0 so vision dominates (inverse-variance weighting).
+- `getRelativePose()`: all game logic works in blue-alliance coordinates, flipped for red.
+- Watchdog: if no drive call for 0.1 s, command zero speeds.
+- Findings: (a) **trench override dt bug**: `dtCalc.update()` only runs while overriding, so
+  the first tick of each engagement gets dt = time since last override (seconds to minutes);
+  profile jumps straight to the goal, controller sees full Y error (P=2 m/s per m): lateral
+  lurch. Fix: reset dtCalc when engaging. Profile velocity also discarded (fieldSpeeds = 0).
+  (b) **`MovingAveragePose(1.60)` is clamped to alpha = 1.0, i.e. no smoothing**; the
+  "smoothed" pose used by AutoAim and zones is the raw pose. Comment says previously 0.30;
+  maybe deliberate, but misleading. (c) `stickDeadband = 0.0`: stick rest offset -> creep.
+  (d) maxSpeed 9.12 vs `SpeedAt12Volts` 4.32: with the 1.5 curve, top speed reached at ~61%
+  stick. (e) Debug controller takes precedence over driver whenever connected.
+  (f) `tiltThresholdDegrees = 1.0` gates auto-shoot (isFlat); very tight.
+
 ---
 
 ## 6. Log
@@ -392,3 +417,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
 - **2026-10-02**: Walked `IntakeSubsystem` and `MotorHelpers`. Resolved SysId units question.
 - **2026-10-04**: kS discussion, indexer, turret friction analysis, walked `PivotSubsystem`.
 - **2026-10-04**: Walked Superstructure layer; found TOWER-zone return-to-zone issue.
+- **2026-10-06**: Walked DriveCommand and SwerveSubsystem.
