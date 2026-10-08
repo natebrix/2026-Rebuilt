@@ -403,6 +403,22 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   stick. (e) Debug controller takes precedence over driver whenever connected.
   (f) `tiltThresholdDegrees = 1.0` gates auto-shoot (isFlat); very tight.
 
+### Glossary and clarifications (2026-10-08)
+- **CTRE**: Cross The Road Electronics, FRC hardware vendor (Talon FX controllers inside Kraken
+  motors, CANcoder, Pigeon 2, CANivore). **Phoenix 6** is their Java SDK, incl. swerve.
+- **Holonomic**: drivetrain that controls x, y and heading independently (swerve); a
+  holonomic controller runs separate feedback on each and outputs chassis speeds.
+- **Pigeon 2**: CTRE IMU (gyro + accelerometer); yaw = heading, pitch/roll feed `isFlat`.
+- **Pose estimation**: wheel odometry (module distances + angles -> kinematics) with gyro heading,
+  integrated at 120 Hz, drifts. Vision (AprilTags) = absolute, noisy, delayed. Fusion follows
+  WPILib's estimator: per-axis fixed gain from state vs vision std devs, applied at the camera
+  timestamp and replayed forward. Example: state 0.05, vision 0.5 -> ~9% pull per frame;
+  in slip (state 2.0) -> ~80%.
+- **Trench override bug**, clarified: triggered by the driver *pressing a bumper*, not by entering
+  the trench zone. Profile is bypassed on every press (unless re-pressed within a fraction of a
+  second), so the robot gets a step velocity command of 2 m/s per metre of offset instead of a
+  3 m/s^2 ramp. Feel/jolt issue, possible wheel slip; not a safety hazard.
+
 ---
 
 ## 6. Log
