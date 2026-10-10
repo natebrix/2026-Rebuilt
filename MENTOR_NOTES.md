@@ -231,6 +231,8 @@ Criteria: can it be verified (sim or logs)? does it teach? does it need the team
 - `configureStandardDevsForDisabled()` never called: dropped on purpose?
 - Intake supply current limit disabled; kA values (shooter 30000, intake 75) inert.
 - Both operator stick clicks snap pivot to 0.
+- Photon tag area passed as percent to a calculator expecting fraction: were base std devs
+  tuned with this in place? Should vision be gated on the 1 deg flatness check?
 
 ### Tier 3: Infrastructure (highest leverage; mentor-shaped)
 5. **Unit tests** (none exist). Add JUnit + `src/test`; start with pure functions:
@@ -249,6 +251,8 @@ Criteria: can it be verified (sim or logs)? does it teach? does it need the team
 10. **Flywheel sag at ball exit** (raw vs median-filtered rps at shot time). Prerequisite for 11.
 11. **Robust arc selection** (former #1): choose arc minimizing landing error under measured
     speed variance. Now sequenced after 8 and 10.
+12a. **Vision std-dev model calibration.** Fix area units, then fit empirical error vs
+    distance / tag count from logs (stationary at known poses, or vs odometry at low speed).
 12. **Pivot gravity feedforward** (`Arm_Cosine` + kG via SysId). Needs CAD to confirm 0 = horizontal.
 
 ### Tier 5: Solver and code-quality improvements (after tests exist)
@@ -466,6 +470,29 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   mid-shot leaves shooter setpoint at last value. (e) sentinels everywhere (ToF -1, speed -1,
   null pitch). (f) Uses raw pose (smoothing clamped off) and 1 deg flatness gate.
 
+### Vision (walked 2026-10-10)
+- Active cameras: three fixed PhotonVision cameras (evan front, val back, daniil rio-side).
+  Limelight turret camera (argos) commented out, so the turret-angle observer wired in
+  RobotContainer currently has no consumer; MegaTag2 path dormant.
+- Each PhotonProcessor runs on its own Notifier thread at 20 Hz: unread frames ->
+  PhotonPoseEstimator (coprocessor multi-tag if >1 tag, else lowest-ambiguity single tag) ->
+  std devs -> lock-free queue. VisionSubsystem.periodic drains queues -> filters (latency
+  <= 90 ms; single-tag ambiguity <= 0.18 and distance <= 7 m; area 0.04..10; odometry
+  outlier filter disabled) -> PoseFusionEngine (group within 20 ms, reject > 2 sigma from
+  mean, inverse-variance weighted average) -> if robot flat, `swerve.addVisionMeasurement`.
+- Std dev model (StdDevCalculator): base (0.41 m, 0.58 rad) x ambiguity^0.7 x area^0.6 x
+  latency^0.2 x 1.4/ln(n+1). Hand-built heuristic.
+- Findings: (a) **area unit mismatch**: calculator expects fraction of frame, Photon
+  `getArea()` is percent (0-100); Limelight path divides by 100, Photon doesn't. Net: std devs
+  ~4x smaller than designed (10^0.6), variance ~16x; tags >= 1% of frame all get the floor
+  factor (distance sensitivity lost). Base constants may have been tuned around it.
+  (b) Vision measurements dropped unless `isFlatDebounced` (1 deg gate) -> also affects
+  localization. (c) `getVisionPose()` (used for resets) returns latest single-camera result,
+  not the fused one; `primaryFused` list is actually filtered raw. (d) Fusion assumes
+  independent camera errors; outlier test uses non-robust mean. (e) Ring-buffer result
+  objects reused across threads (latent, low-probability race). (f) Turreted Photon path
+  scales by 1/sqrt(n) on top of tag-count factor (double count; currently unused).
+
 ---
 
 ## 6. Log
@@ -483,3 +510,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
 - **2026-10-06**: Walked DriveCommand and SwerveSubsystem.
 - **2026-10-10**: Walked aiming stack. Collision-map open question resolved (geometric).
 - **2026-10-10**: Re-prioritized contribution list (§4).
+- **2026-10-10**: Walked vision. Found area-unit mismatch in std-dev model.
