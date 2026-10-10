@@ -257,7 +257,7 @@ Ordered roughly by value. Items 1 through 6 are solver improvements; the rest ar
 - Which do autos use, BLine `FollowPath` or PathPlanner, and when?
 - What is the actual convergence count of the fixed-point loop in match logs? (Would confirm
   the contraction argument and justify the warm-start change.)
-- How is the collision map derived? Empirical or geometric?
+- ~~How is the collision map derived?~~ Geometric: square hub, rim height + padding (see §7).
 - What is the measured flywheel speed variance at shot time? Needed for item 1.
 
 ---
@@ -419,6 +419,36 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   second), so the robot gets a step velocity command of 2 m/s per metre of offset instead of a
   3 m/s^2 ramp. Feel/jolt issue, possible wheel slip; not a safety hazard.
 
+### Aiming stack (walked 2026-10-10): AutoAimController, TurretController, turret/hood/shooter
+- Per tick (`AutoAimController.periodic`): finite-difference field accel (median-5 filtered) ->
+  collision cache -> solver (`calculateDynamicAim`) with pose, speeds, accels, target, and
+  *measured* flywheel speed (median-10 filtered, ~100 ms lag) -> apply.
+- Speed vs pitch split: shooter setpoint = solver's recommendedShotSpeed (grid search);
+  hood pitch = solved for current measured speed, so hood compensates during spin-up.
+- Flywheel idles at 30 rps when setpoint 0; spins up only once firing conditions hold; decel
+  slew-limited to 12 rps/s so it stays fast between shots.
+- When not firing: hood flat, turret pre-aims at hub (solve with speed 0, no ToF compensation).
+- Firing chain: meetsFiringConditions (valid speed, auto-shoot on, shouldAutoShoot: hub
+  active or about to be, robot behind hub line, flat; or operator override; shooter
+  UNRESTRICTED) -> isReadyToShoot (+ hood within 4 deg, turret within 7.5 deg, not wrapping,
+  solution feasible at current speed; debounced falling 0.2 s) -> pipeline ON (waits for
+  flywheel within 4 rps) -> keep feeding while flywheel >= 90% (manual) / 30% (passes).
+- Targets: hub funnel bottom when behind hub line; else left/right pass point (z = 0), with
+  robot velocity scaled by 0.5 (or 0 deep in opponent zone) and 1.05x speed.
+- **Collision map answered: geometric.** Hub = 47 in square; distance from turret to near wall
+  along line of sight; projectile height there vs rim + padding (5 cm / 20 cm). No drag.
+- Exit speed model: v = rps * pi * 1.92 in * (1 - 0.10695). Linear, two fudge factors; a prime
+  calibration target.
+- TurretController: target yaw -> robot-relative -> two candidate paths (shortest and +/-360)
+  within -180..230 deg; prefer path near last setpoint; in auto bias toward +/-90 deg to avoid
+  later wraps; `isWrapping` (move > 180 deg) blocks firing.
+- Findings: (a) solver gets flywheel speed through a 10-sample median filter: ignores sag at
+  ball exit (ties to robust-arc idea #1). (b) shooterZ literal duplicated in
+  `checkHubCollision` instead of `turretTranslation3D.getZ()`. (c) passes keep feeding down
+  to 30% flywheel speed (`ferryingShooterLeniency = 0.7`): intended? (d) disabling aim
+  mid-shot leaves shooter setpoint at last value. (e) sentinels everywhere (ToF -1, speed -1,
+  null pitch). (f) Uses raw pose (smoothing clamped off) and 1 deg flatness gate.
+
 ---
 
 ## 6. Log
@@ -434,3 +464,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
 - **2026-10-04**: kS discussion, indexer, turret friction analysis, walked `PivotSubsystem`.
 - **2026-10-04**: Walked Superstructure layer; found TOWER-zone return-to-zone issue.
 - **2026-10-06**: Walked DriveCommand and SwerveSubsystem.
+- **2026-10-10**: Walked aiming stack. Collision-map open question resolved (geometric).
