@@ -493,6 +493,23 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
   objects reused across threads (latent, low-probability race). (f) Turreted Photon path
   scales by 1/sqrt(n) on top of tag-count factor (double count; currently unused).
 
+### Vision, deeper pass (2026-10-11, during Bordie Blast)
+- Timestamps handled correctly: Photon FPGA time -> `Utils.fpgaToCurrentTime` (CTRE timebase)
+  before `addVisionMeasurement`; turret yaw buffer uses FPGA time on both sides.
+- Two-stage estimation: cameras pre-fused (inverse variance, independence assumed, stamped
+  with the *latest* timestamp in a 20 ms group) then fused again with odometry. At 4 m/s the
+  timestamp choice smears up to ~8 cm. Alternative: send each camera's measurement to the
+  estimator separately (it already weights and latency-compensates); lose cross-camera
+  outlier rejection. Trade-off worth testing.
+- Single-tag frames use lowest-ambiguity PnP and ignore the gyro. PhotonLib 2026 should offer
+  heading-assisted strategies (PnP distance trig solve / constrained solvePnP via heading
+  data), the Photon analogue of Limelight MegaTag2. Likely accuracy win for single-tag.
+- Vision heading is fused into the estimator (theta std ~0.4 rad per camera; ~5-8% pull per
+  measurement). Turret aim = field yaw - robot heading, so heading bias = aim bias. Check:
+  estimator heading vs raw Pigeon yaw over a match.
+- Simulation has PhotonVision camera sim (50 fps, small calibration noise) with known true
+  pose: a sandbox to prototype the outlier / std-dev analyses before real logs arrive.
+
 ---
 
 ## 6. Log
@@ -511,3 +528,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
 - **2026-10-10**: Walked aiming stack. Collision-map open question resolved (geometric).
 - **2026-10-10**: Re-prioritized contribution list (§4).
 - **2026-10-10**: Walked vision. Found area-unit mismatch in std-dev model.
+- **2026-10-11**: Vision deeper pass (timestamps, two-stage fusion, heading, sim sandbox).
