@@ -199,53 +199,70 @@ objective. Reasonable given the 20 ms compute budget.
 
 ---
 
-## 4. Opportunities to Contribute
+## 4. Opportunities to Contribute (re-prioritized 2026-10-10)
 
-Ordered roughly by value. Items 1 through 6 are solver improvements; the rest are broader.
+Ranked by value x confidence / effort, after reading the full stack except vision and autos.
+Criteria: can it be verified (sim or logs)? does it teach? does it need the team's intent first?
 
-### Solver improvements
-1. **Choose the arc that is most robust, not the flattest.** The flat arc has the lowest time
-   of flight but enters the hub at the shallowest angle, so it is most sensitive to speed
-   error. ∂x/∂v has a closed form for a parabola. Choose the arc minimizing landing
-   sensitivity to flywheel error, weighted by measured flywheel variance. One line of algebra,
-   and it directly connects PID calibration quality to the aiming decision. The data to
-   justify it is already logged by the shooter's velocity and setpoint publishers.
-   **This is the one to pitch to the team first.**
-2. **Replace the pitch sweep with root finding.** The minimum-speed pitch has a closed form;
-   if the collision constraint makes it infeasible, bisect on the constraint boundary. Exact
-   answers instead of 0.8° granularity, and cheaper than 50 evaluations.
-3. **Let flywheel speed float toward the recommended value.** Today yaw/pitch are solved for
-   the current speed and the recommended speed is only a fallback. With hood and speed as
-   two degrees of freedom for one target there is a one-parameter family of solutions.
-   Choosing speed to minimize recovery time between shots, or to keep the hood mid-range,
-   is a small problem that reduces to picking a point on a curve.
-4. **Warm-start the fixed-point iteration** from the previous tick's displacement. The
-   controller runs at 50 Hz and d* barely changes between ticks. Trivial, pure compute win.
-5. **Damp the lookahead derivative.** yawOmega and pitchOmega come from a finite difference
-   over 20 ms on a chain that includes noisy pose and velocity estimates. A first-order filter
-   or longer horizon would smooth feedforward without meaningful lag.
-6. **Signed-distance collision margin.** Replace two boolean predicates with a single signed
-   distance function and prefer solutions with larger clearance. Turns a binary check into a
-   graded quantity that can be traded off against other criteria.
+### Tier 1: Small verified fixes (first PRs, pair with a student; verify in sim)
+1. **Tower zone kills the intake.** `getReturnToZoneCommand` maps TOWER to `idle()`, which
+   turns the intake off (and limits the shooter to 35 rps) while the operator holds intake.
+   Fix: map TOWER like its surrounding zone. Sim: drive to tower, hold LT, watch intake setpoint.
+2. **Trench override profile bypassed.** `dtCalc` not reset on engage; robot lurches sideways
+   on bumper press. One-line fix (+ pass profile velocity). Sim: watch `swerve/FieldRelativeSpeeds`.
+3. **Driver POV up/down nudges missing `swerveSubsystem` requirement.** Two one-line fixes;
+   good teaching example for requirements.
+4. **Housekeeping bundle:** indexer `.withKS(S)` missing; `checkHubCollision` duplicates the
+   shooter height literal; pivot `deltaSetpoint` can push past the hard stop (re-clamp in
+   `periodic`); `setPipelineState` mutates state at build time; misleading pipeline
+   "debounced" comment; remove dead YAGSL vendordep + `deploy/swerve/*.json`.
 
-### Calibration and consistency
-7. **Remove dead YAGSL config.** Swerve is CTRE `SwerveDrivetrain`; the YAGSL vendordep and
-   `deploy/swerve/*.json` are unused and mislead readers (they misled me). Small, safe
-   cleanup PR, good first contribution.
-8. **Fix shooter SysId units / zero out `A`.** Either make SysId drive `VoltageOut` and log
-   motor voltage (matches the `VelocityVoltage` runtime), or switch runtime to
-   `VelocityTorqueCurrentFOC` like the other mechanisms. Set kA to 0 or a fitted value.
-9. **Document the calibration workflow** for students: which buttons, where logs land, how to
-   use the SysId tool, where constants go.
+### Tier 2: Questions to ask before changing anything (intent unknown)
+- Is pose smoothing meant to be off? (`MovingAveragePose(1.60)` clamps to alpha 1.0.)
+- Why `turretTolerance = 7.5 deg`? Is turret lag while moving the reason?
+- 1 deg flatness gate on auto-shoot: margin on flat ground?
+- Passes keep feeding down to 30% flywheel speed: intended?
+- Pivot profile 100 rot/s, 100 rot/s^2: units mix-up or deliberate?
+- `stickDeadband = 0`; `maxSpeed` 9.12 vs 4.32 configured: driver preference?
+- Why were heading lock, speed limits, align trigger disabled in DriveCommand?
+- Debug controller overrides driver when plugged in: competition procedure?
+- Pivot `MAGNET_OFFSET = 1.28` outside [-1, 1): what does Tuner X show?
+- Shoot gate doesn't stop when hub is about to turn *off*: rules grace period?
+- `configureStandardDevsForDisabled()` never called: dropped on purpose?
+- Intake supply current limit disabled; kA values (shooter 30000, intake 75) inert.
+- Both operator stick clicks snap pivot to 0.
+
+### Tier 3: Infrastructure (highest leverage; mentor-shaped)
+5. **Unit tests** (none exist). Add JUnit + `src/test`; start with pure functions:
+   `AutoAim` (shots land on target, convergence), `TurretController` (path choice, wrap),
+   `FieldZoneMap` zones (table-driven), and an extracted `MatchState` (hub shift schedule
+   from Robot.teleopPeriodic). Makes every later change safer.
+6. **Log analysis toolkit.** Python `.wpilog` reader (robotpy-wpiutil) + notebook template.
+   Add missing publishers first: turret setpoint, intake/turret torque current.
+7. **Calibration runbook.** SysId buttons -> log -> SysId tool -> Constants; dashboard live
+   tuning and the copy-back step; units (volts vs amps) per mechanism.
+
+### Tier 4: Data-driven accuracy (season-long student projects; need Tier 3)
+8. **Exit-speed calibration** `v_ball(rps)` (currently `rps*pi*1.92in*(1-0.107)`). Single biggest
+   accuracy lever: every pitch the solver computes depends on it. Needs CAD wheel diameter.
+9. **Turret friction / tracking error** from logs (s/kP plateau); add kS if > ~0.5 deg.
+10. **Flywheel sag at ball exit** (raw vs median-filtered rps at shot time). Prerequisite for 11.
+11. **Robust arc selection** (former #1): choose arc minimizing landing error under measured
+    speed variance. Now sequenced after 8 and 10.
+12. **Pivot gravity feedforward** (`Arm_Cosine` + kG via SysId). Needs CAD to confirm 0 = horizontal.
+
+### Tier 5: Solver and code-quality improvements (after tests exist)
+13. Replace pitch sweep with root finding (former #2); warm-start fixed point (former #4);
+    damp lookahead derivatives (former #5); signed-distance collision margin (former #6).
+    Former #3 (float speed) is half-done: hood already adapts to measured speed.
+14. Refactors: one zone-command builder instead of five copies; `Optional`/feasibility flag
+    instead of -1/null sentinels; fix pivot/trench profiles discarding velocity.
 
 ### Mentoring angle
-- The solver is a natural teaching vehicle for students: projectile physics, quadratic roots,
-  fixed-point iteration, and the idea of an objective vs. a feasibility check.
-- PID/SysId calibration is a repeatable, hands-on process students can own each season.
-- Logged shooter data offers a real dataset for a small analysis project (flywheel variance,
-  recovery time between shots).
-
----
+- Tier 1 items are ideal "first PR with a student" exercises: small, explainable, verifiable.
+- Tier 3-4 match my background: tests, logging, regression, experimental design
+  (identifiability, observational vs designed data).
+- Lead with questions (Tier 2) before proposing changes: the team knows the robot's history.
 
 ## 5. Open Questions
 
@@ -465,3 +482,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
 - **2026-10-04**: Walked Superstructure layer; found TOWER-zone return-to-zone issue.
 - **2026-10-06**: Walked DriveCommand and SwerveSubsystem.
 - **2026-10-10**: Walked aiming stack. Collision-map open question resolved (geometric).
+- **2026-10-10**: Re-prioritized contribution list (§4).
