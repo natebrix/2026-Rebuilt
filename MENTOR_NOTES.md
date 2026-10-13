@@ -234,6 +234,8 @@ Criteria: can it be verified (sim or logs)? does it teach? does it need the team
 - Photon tag area passed as percent to a calculator expecting fraction: were base std devs
   tuned with this in place? Should vision be gated on the 1 deg flatness check?
 
+- PAUSE segment: end early using the ball sensor (comment promises it; not implemented).
+
 ### Tier 3: Infrastructure (highest leverage; mentor-shaped)
 5. **Unit tests** (none exist). Add JUnit + `src/test`; start with pure functions:
    `AutoAim` (shots land on target, convergence), `TurretController` (path choice, wrap),
@@ -510,6 +512,31 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
 - Simulation has PhotonVision camera sim (50 fps, small calibration noise) with known true
   pose: a sandbox to prototype the outlier / std-dev analyses before real logs arrive.
 
+### Autos (walked 2026-10-13; 4915 won Bordie Blast as Alliance 1 captain on 2026-10-11)
+- Autos only drive. Mechanisms are run by Superstructure zone triggers, whose `conditional*`
+  helpers act only in autonomous: crossing into the neutral zone deploys intake, alliance zone
+  enables auto-shoot, etc. Driving and mechanism behavior are decoupled.
+- ComplexAutoChooser: a finite-state grammar. `AutoSegment` enum = steps; `AllowedTransitions` =
+  which steps may follow (READY_TO_INTAKE, DIST_SELECT, WITHIN_NEUTRAL, WITHIN_ALLIANCE).
+  Up to 20 dashboard choosers; changing step i rebuilds the choosers after it and re-runs survey.
+- `getAuto()` maps the chosen sequence to factory calls (ZoneTransition trench/bump crossings,
+  NeutralZoneAutos intake sweeps with CLOSE/NORMAL/FAR shift, DriveToPOI depot/outpost, PAUSE =
+  jostle pivot while shooting for a dashboard-set time) and returns a SequentialCommandGroup.
+  Built at auto start (deferred), every path starting from the robot's current pose.
+- Survey mode: the same factory code runs with a global `surveyMode` flag; `Autos.build` records
+  path elements instead of returning commands and `Autos.wait` becomes a no-op, then the path is
+  drawn on an Elastic Field2d with a simulated robot moving along it. Clever "dry run".
+- `Autos.build(path, endWithSpeedDirection)`: appends an overshoot point and races the path
+  against "within distance of overshoot", so a segment ends still moving into the next.
+- Bump crossing: path aims far past the bump (pose unreliable on the bump) and races with
+  "past hub line AND flat AND vision has pose", then continues briefly. Depends on the 1 deg gate.
+- Findings: (a) PAUSE comment says it ends early when no balls are detected; code waits the full
+  time (LaserCAN result unused). Using the ball sensor could save seconds per auto.
+  (b) Global static survey state (`surveyMode`) shared with live code; safe because
+  autonomousInit clears it first, but fragile. (c) Autos start from current pose, so
+  pre-match localization matters; `configureStandardDevsForDisabled` (never called) was likely
+  meant for that. (d) `Autos` extends SubsystemBase but is all-static.
+
 ---
 
 ## 6. Log
@@ -529,3 +556,4 @@ exists; `AutoAim` is pure math and the ideal first place for JUnit tests.
 - **2026-10-10**: Re-prioritized contribution list (§4).
 - **2026-10-10**: Walked vision. Found area-unit mismatch in std-dev model.
 - **2026-10-11**: Vision deeper pass (timestamps, two-stage fusion, heading, sim sandbox).
+- **2026-10-13**: Walked autos. Reading plan complete. 4915 won Bordie Blast (2026-10-11).
