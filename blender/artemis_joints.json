@@ -314,6 +314,24 @@
       "axis": "X",
       "control": "shooter_wheels_deg",
       "angle_rad": "(radians(v))*ratio (v = ARTEMIS['shooter_wheels_deg'])"
+    },
+    {
+      "name": "hopper_ext",
+      "type": "prismatic",
+      "parent": "ARTEMIS",
+      "origin": [
+        0.36000001430511475,
+        0.0,
+        0.2150000035762787
+      ],
+      "axis": "X",
+      "control": "intake_pivot_deg",
+      "travel": [
+        0.0,
+        0.24
+      ],
+      "approximate": true,
+      "note": "x = rest + 0.24 * clamp((130.0 - v) / 100.0, 0, 1)"
     }
   ],
   "controls": {

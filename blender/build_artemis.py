@@ -41,6 +41,7 @@ from mathutils import Matrix, Vector
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+import approx_panels  # noqa: E402  (sibling module)
 import materials  # noqa: E402  (sibling module)
 
 # --------------------------------------------------------------------------
@@ -808,6 +809,8 @@ def parse_args():
     ap.add_argument("--no-studio", action="store_true", help="skip floor, lights, cameras")
     ap.add_argument("--no-demo", action="store_true", help="skip the demo animation")
     ap.add_argument("--report", default=None, help="write a JSON joint/part summary here")
+    ap.add_argument("--no-approx", action="store_true",
+                    help="skip the approximate panels that are missing from the CAD (approx_panels.py)")
     ap.add_argument("--team-number", default="4915",
                     help="bumper numbers to add on all four bumpers ('' for none)")
     return ap.parse_args(argv)
@@ -862,6 +865,16 @@ def main():
     materials.assign_all(parts, root)
     if args.team_number:
         add_bumper_numbers(parts, root, args.team_number)
+    if not args.no_approx and "intake_arm" in joints:
+        from types import SimpleNamespace
+        rig = SimpleNamespace(root=root, rig_col=rig_col, robot_col=robot_col, rest=REST,
+                              make_empty=make_empty, add_driver=add_driver,
+                              parent_keep=parent_keep, recenter=recenter_origin)
+        made, spec = approx_panels.add(rig, materials.make("polycarb_smoked"))
+        specs.append(spec)
+        root.update_tag()
+        bpy.context.view_layer.update()
+        log(f"added {len(made)} approximate panels (intake hopper extension, back walls)")
 
     if not args.no_studio:
         build_studio(link_collection("Studio", scene.collection))

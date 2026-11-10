@@ -11,6 +11,7 @@ Every mechanism moves from one set of sliders, in the same units the robot code 
 | `ARTEMIS.blend` | The scene (~44 MB, Git LFS). Open with **Blender 5.2 LTS** or newer. GitHub does not store LFS files in forks, so this file is **not committed in `natebrix/2026-Rebuilt`**. Get it from [natebrix/artemis-blender](https://github.com/natebrix/artemis-blender), which is the main home of this project, or build it (see [Rebuilding](#rebuilding), ~35 s). |
 | `build_artemis.py` | Rebuilds `ARTEMIS.blend` from `source/`: import, cleanup, rig, materials, studio, demo animation. |
 | `materials.py` | Procedural material library and the rules that map each part to a material. |
+| `approx_panels.py` | Best-effort panels that the real robot has but the May CAD export lacks: the intake hopper extension and the back walls. See [Approximate parts](#approximate-parts-not-in-the-cad). |
 | `fetch_bom_materials.py` | Downloads each part's Onshape material and appearance from the public share into `source/onshape_bom_materials.json`. No API key is needed. |
 | `render_previews.py` | Renders a still of any pose or animation frame from the command line. |
 | `artemis_joints.json` | Every joint's parent, origin, axis and control property, for simulation or other tools. |
@@ -36,7 +37,7 @@ git lfs pull
 
 | Property | Units / range | Meaning |
 | --- | --- | --- |
-| `intake_pivot_deg` | −2 … 132 ° | Matches `PivotSubsystem`. **130 = STOW** (CAD pose, the default), 60 = SAFE, 0 = READY (deployed). |
+| `intake_pivot_deg` | −2 … 132 ° | Matches `PivotSubsystem`. **130 = STOW** (CAD pose, the default), 60 = SAFE, 0 = READY (deployed). Also slides the approximate hopper extension. |
 | `turret_deg` | −170 … 225 ° | Matches `TurretSubsystem`. Counter-clockwise (CCW) from robot-forward. |
 | `hood_deg` | 0 … 40 ° | Matches `HoodSubsystem`. 0 = down. The hood pivots on the flywheel shaft. |
 | `climber_m` | 0 … 0.28 m | Climber extension. The 0.28 m travel is an estimate; see the notes below. |
@@ -107,6 +108,7 @@ Options:
 | `--no-rollers` | Don't rig spinning rollers. |
 | `--no-studio` | Skip the floor, lights and cameras. |
 | `--no-demo` | Skip the demo animation. |
+| `--no-approx` | Skip the approximate panels in `approx_panels.py`. |
 
 **Re-exporting from Onshape.** The script expects the same layout as the AdvantageScope export:
 
@@ -149,12 +151,26 @@ If the layout changes, edit `COMPONENT_FILES` at the top of `build_artemis.py`.
 ### Known limitations
 
 * **Climber travel.** The 0.28 m travel is estimated from the tube lengths, because the climber code has been removed.
-* **Intake hopper walls.** On the robot, the deployed intake forms a tall box: smoked polycarbonate side walls plus a front wall. The newer Onshape version has them as Parts 32, 34 and 35 of `32 - 2026 Intake V2`. They are **not** in the May export, so the model only shows the intake's low side plates.
+* **Hopper extension and back walls are approximate.** They aren't in the May export, so they were modelled from photos and video; see [Approximate parts](#approximate-parts-not-in-the-cad). The way the hopper extension retracts is a guess.
 * **Not in the CAD at all.** The sponsor and ARTEMIS decals, wiring and cable sleeves.
 * **Guessed materials.** Team-made parts with no material set in Onshape are guessed from their CAD colour. For example, white CAD parts became white HDPE or white prints.
 * **Mechanism motion.** All roller ratios are 1. Belts and chains don't animate.
 * **Triangle count.** The scene has 2.5 M triangles, which is fine for stills and animation. For real-time use or physics, decimate the meshes or build simple collision shapes.
 * **Newer CAD versions.** The model is the May 2026 export. The newer public Onshape share (version `d5fdcfd9…`) adds at least the intake hopper walls. To use it, export the same five files and rebuild.
+
+## Approximate parts (not in the CAD)
+
+The real robot has panels that the May 2026 CAD export doesn't. Without CAD geometry or a newer export, `approx_panels.py` adds them as flat 1/8" smoked-polycarbonate panels. They are sized from the Onshape parts list and placed from the reveal video and the team photo. They live in the `ARTEMIS › Approximate (not in CAD)` collection, so you can hide them or skip them with `--no-approx`.
+
+* **Intake hopper extension:** a front wall and two side walls. These are Parts 34, 32 and 35 in the newer Onshape version. The parts list gives their weights: 1.78 lb for the front wall and 0.955 lb for each side wall, which works out to about 0.21 m² and 0.11 m² at 1/8". The deployed shape matches the video at 0:24 and 0:44.
+* **How the extension retracts is a guess.** No photo shows it. The walls can't swing rigidly with the intake arm, because they would pass through the drivebase and the turret. So the model treats them as a sliding extension:
+  * The front wall stays upright and slides 24 cm forward on `J_hopper_ext`. It is driven by `intake_pivot_deg` and reaches full extension by 30°, which keeps it ahead of the swinging rollers.
+  * The side walls telescope: a Hook modifier moves their front edge.
+
+  A collision check in the stowed, mid-travel and deployed poses, with the turret and hood at several angles, found no overlaps. The only contact is where the deployed front wall meets the intake's side plates.
+* **Back walls:** seen at 0:14 in the reveal video. The left half is full height. The right half stops at 0.355 m so the shooter can swing over it. The climber tube sits in the gap between them.
+
+When a newer CAD export is available, delete `approx_panels.py` from the build (or use `--no-approx`) and rebuild.
 
 ## Simulation
 
