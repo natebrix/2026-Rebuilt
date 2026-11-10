@@ -8,7 +8,7 @@ Every mechanism moves from one set of sliders, in the same units the robot code 
 
 | File | What it is |
 | --- | --- |
-| `ARTEMIS.blend` | The scene (~44 MB, Git LFS). Open with **Blender 5.2 LTS** or newer. GitHub does not store LFS files in forks, so this file is **not committed in `natebrix/2026-Rebuilt`**. To get it, build it (see [Rebuilding](#rebuilding), ~35 s). |
+| `ARTEMIS.blend` | The scene (~44 MB, Git LFS). Open with **Blender 5.2 LTS** or newer. GitHub does not store LFS files in forks, so this file is **not committed in `natebrix/2026-Rebuilt`**. Get it from [natebrix/artemis-blender](https://github.com/natebrix/artemis-blender), which is the main home of this project, or build it (see [Rebuilding](#rebuilding), ~35 s). |
 | `build_artemis.py` | Rebuilds `ARTEMIS.blend` from `source/`: import, cleanup, rig, materials, studio, demo animation. |
 | `materials.py` | Procedural material library and the rules that map each part to a material. |
 | `render_previews.py` | Renders a still of any pose or animation frame from the command line. |
