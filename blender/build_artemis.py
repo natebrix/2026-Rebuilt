@@ -635,8 +635,12 @@ def organise_collections(parts, robot_col):
         move_to_collection(o, cols[label])
 
 
+NUMBER_SIDE_X = -0.20   # centre of the side numbers along the robot (rear half)
+NUMBER_BACK_Y = -0.22   # centre of the back number (right half of the back bumper)
+
+
 def add_bumper_numbers(parts, root, text):
-    """White team numbers on the flat face of the left and right bumpers
+    """White team numbers on the flat face of the side and back bumpers
     (the CAD bumpers have none; the real ones do)."""
     bump = [p for p in parts if p["onshape_path"].startswith("91 - 2026 Bumpers")
             and any(s.material and s.material.name == "Bumper Fabric" for s in p.material_slots)]
@@ -665,10 +669,15 @@ def add_bumper_numbers(parts, root, text):
     col = bump[0].users_collection[0]
     gap = 0.0008
     r90 = math.radians(90)
+    # As on the real robot (team photo and reveal video): on both sides toward
+    # the rear, and on the right half of the back bumper (the back is split in
+    # the middle around the climber).
+    xs, yb = NUMBER_SIDE_X, NUMBER_BACK_Y
     placements = {
-        "L": ((0.0, mx.y + gap, zc), (r90, 0.0, math.pi)),
-        "R": ((0.0, mn.y - gap, zc), (r90, 0.0, 0.0)),
-    }  # front/back bumpers are split in the middle, so numbers go on the sides (as on the robot)
+        "L": ((xs, mx.y + gap, zc), (r90, 0.0, math.pi)),
+        "R": ((xs, mn.y - gap, zc), (r90, 0.0, 0.0)),
+        "B": ((mn.x - gap, yb, zc), (r90, 0.0, -r90)),
+    }
     for side, (loc, rot) in placements.items():
         o = bpy.data.objects.new(f"Bumper Number {side}", me)
         col.objects.link(o)
@@ -799,7 +808,7 @@ def parse_args():
     ap.add_argument("--no-demo", action="store_true", help="skip the demo animation")
     ap.add_argument("--report", default=None, help="write a JSON joint/part summary here")
     ap.add_argument("--team-number", default="4915",
-                    help="bumper numbers to add on the left and right bumpers ('' for none)")
+                    help="bumper numbers to add on the side and back bumpers ('' for none)")
     return ap.parse_args(argv)
 
 
