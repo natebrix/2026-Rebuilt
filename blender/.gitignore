@@ -1,0 +1,5 @@
+*.blend1
+__pycache__/
+# ARTEMIS.blend lives in Git LFS; GitHub does not accept LFS uploads to forks,
+# so it is not committed in natebrix/2026-Rebuilt. Rebuild it with build_artemis.py.
+ARTEMIS.blend

@@ -1,0 +1,508 @@
+{
+  "joints": [
+    {
+      "name": "turret",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.11829499900341034,
+        -0.14369499683380127,
+        0.36227598786354065
+      ],
+      "axis": "Z",
+      "control": "turret_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['turret_deg'])"
+    },
+    {
+      "name": "intake_arm",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        0.2842000126838684,
+        0.0,
+        0.18250000476837158
+      ],
+      "axis": "Y",
+      "control": "intake_pivot_deg",
+      "angle_rad": "-1*radians(v-(130.0)) (v = ARTEMIS['intake_pivot_deg'])"
+    },
+    {
+      "name": "spindexer",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        0.047200001776218414,
+        -0.00019999999494757503,
+        0.061900001019239426
+      ],
+      "axis": "Z",
+      "control": "spindexer_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['spindexer_deg'])"
+    },
+    {
+      "name": "hood",
+      "type": "revolute",
+      "parent": "J_turret",
+      "origin": [
+        -0.12434820085763931,
+        -0.09750634431838989,
+        0.4952999949455261
+      ],
+      "axis": "X",
+      "control": "hood_deg",
+      "angle_rad": "-1*radians(v) (v = ARTEMIS['hood_deg'])"
+    },
+    {
+      "name": "climber",
+      "type": "prismatic",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.3060699999332428,
+        0.02539999969303608,
+        0.14605000615119934
+      ],
+      "axis": "Z",
+      "control": "climber_m",
+      "travel": [
+        0.0,
+        0.28
+      ]
+    },
+    {
+      "name": "steer_FL",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        0.2635008692741394,
+        0.28895360231399536,
+        0.05079999566078186
+      ],
+      "axis": "Z",
+      "control": "steer_FL_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['steer_FL_deg'])"
+    },
+    {
+      "name": "wheel_FL",
+      "type": "revolute",
+      "parent": "J_steer_FL",
+      "origin": [
+        0.2635008692741394,
+        0.28895360231399536,
+        0.05079999566078186
+      ],
+      "axis": "Y",
+      "control": "drive_FL_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['drive_FL_deg'])"
+    },
+    {
+      "name": "steer_FR",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        0.2635536193847656,
+        -0.28890088200569153,
+        0.05079999566078186
+      ],
+      "axis": "Z",
+      "control": "steer_FR_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['steer_FR_deg'])"
+    },
+    {
+      "name": "wheel_FR",
+      "type": "revolute",
+      "parent": "J_steer_FR",
+      "origin": [
+        0.2635536193847656,
+        -0.28890088200569153,
+        0.05079999566078186
+      ],
+      "axis": "Y",
+      "control": "drive_FR_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['drive_FR_deg'])"
+    },
+    {
+      "name": "steer_BL",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.2635536193847656,
+        0.28890088200569153,
+        0.05079999566078186
+      ],
+      "axis": "Z",
+      "control": "steer_BL_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['steer_BL_deg'])"
+    },
+    {
+      "name": "wheel_BL",
+      "type": "revolute",
+      "parent": "J_steer_BL",
+      "origin": [
+        -0.2635536193847656,
+        0.28890088200569153,
+        0.05079999566078186
+      ],
+      "axis": "Y",
+      "control": "drive_BL_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['drive_BL_deg'])"
+    },
+    {
+      "name": "steer_BR",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.2635008692741394,
+        -0.28895360231399536,
+        0.05079999566078186
+      ],
+      "axis": "Z",
+      "control": "steer_BR_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['steer_BR_deg'])"
+    },
+    {
+      "name": "wheel_BR",
+      "type": "revolute",
+      "parent": "J_steer_BR",
+      "origin": [
+        -0.2635008692741394,
+        -0.28895360231399536,
+        0.05079999566078186
+      ],
+      "axis": "Y",
+      "control": "drive_BR_deg",
+      "angle_rad": "radians(v) (v = ARTEMIS['drive_BR_deg'])"
+    },
+    {
+      "name": "roller_chassis_01",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.11829512566328049,
+        -0.11972130089998245,
+        0.11414904147386551
+      ],
+      "axis": "X",
+      "control": "feeder_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['feeder_rollers_deg'])"
+    },
+    {
+      "name": "roller_chassis_02",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.11829512566328049,
+        -0.1753069907426834,
+        0.1645001322031021
+      ],
+      "axis": "X",
+      "control": "feeder_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['feeder_rollers_deg'])"
+    },
+    {
+      "name": "roller_chassis_03",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.11829512566328049,
+        -0.052820123732089996,
+        0.2987760901451111
+      ],
+      "axis": "X",
+      "control": "feeder_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['feeder_rollers_deg'])"
+    },
+    {
+      "name": "roller_chassis_04",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.11829512566328049,
+        -0.23457013070583344,
+        0.2987760901451111
+      ],
+      "axis": "X",
+      "control": "feeder_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['feeder_rollers_deg'])"
+    },
+    {
+      "name": "roller_chassis_05",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.11829512566328049,
+        -0.21909557282924652,
+        0.22538986802101135
+      ],
+      "axis": "X",
+      "control": "feeder_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['feeder_rollers_deg'])"
+    },
+    {
+      "name": "roller_chassis_06",
+      "type": "revolute",
+      "parent": "ARTEMIS",
+      "origin": [
+        -0.11829512566328049,
+        0.0027655530720949173,
+        0.24842500686645508
+      ],
+      "axis": "X",
+      "control": "feeder_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['feeder_rollers_deg'])"
+    },
+    {
+      "name": "roller_intake_arm_01",
+      "type": "revolute",
+      "parent": "J_intake_arm",
+      "origin": [
+        0.29747095704078674,
+        0.0,
+        0.4004005193710327
+      ],
+      "axis": "Y",
+      "control": "intake_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['intake_rollers_deg'])"
+    },
+    {
+      "name": "roller_intake_arm_02",
+      "type": "revolute",
+      "parent": "J_intake_arm",
+      "origin": [
+        0.11190562695264816,
+        -0.015017740428447723,
+        0.41625723242759705
+      ],
+      "axis": "Y",
+      "control": "intake_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['intake_rollers_deg'])"
+    },
+    {
+      "name": "roller_intake_arm_03",
+      "type": "revolute",
+      "parent": "J_intake_arm",
+      "origin": [
+        0.08616863191127777,
+        2.2351741790771484e-08,
+        0.29393550753593445
+      ],
+      "axis": "Y",
+      "control": "intake_rollers_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['intake_rollers_deg'])"
+    },
+    {
+      "name": "roller_turret_01",
+      "type": "revolute",
+      "parent": "J_turret",
+      "origin": [
+        -0.11876055598258972,
+        -0.06540902704000473,
+        0.41395074129104614
+      ],
+      "axis": "X",
+      "control": "shooter_wheels_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['shooter_wheels_deg'])"
+    },
+    {
+      "name": "roller_turret_02",
+      "type": "revolute",
+      "parent": "J_turret",
+      "origin": [
+        -0.11856859177350998,
+        -0.09750634431838989,
+        0.4952999949455261
+      ],
+      "axis": "X",
+      "control": "shooter_wheels_deg",
+      "angle_rad": "(radians(v))*ratio (v = ARTEMIS['shooter_wheels_deg'])"
+    }
+  ],
+  "controls": {
+    "turret_deg": {
+      "subtype": "NONE",
+      "description": "Turret yaw, degrees CCW from robot-forward (TurretSubsystem position). Limits -170..225.",
+      "min": -170.0,
+      "max": 225.0,
+      "soft_min": -170.0,
+      "soft_max": 225.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "intake_pivot_deg": {
+      "subtype": "NONE",
+      "description": "Intake pivot (PivotSubsystem position). 130 = STOW (CAD pose), 60 = SAFE, 0 = READY/deployed.",
+      "min": -2.0,
+      "max": 132.0,
+      "soft_min": -2.0,
+      "soft_max": 132.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 130.0
+    },
+    "spindexer_deg": {
+      "subtype": "NONE",
+      "description": "Spindexer rotation, degrees CCW seen from above. Key it linearly to spin.",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -3.4028234663852886e+38,
+      "soft_max": 3.4028234663852886e+38,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "hood_deg": {
+      "subtype": "NONE",
+      "description": "Hood angle (HoodSubsystem position), degrees. 0 = down (CAD pose), 40 = max.",
+      "min": 0.0,
+      "max": 40.0,
+      "soft_min": 0.0,
+      "soft_max": 40.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "climber_m": {
+      "subtype": "DISTANCE",
+      "description": "Climber extension in metres (0 = retracted CAD pose; travel ~0.28 m is an estimate).",
+      "min": 0.0,
+      "max": 0.28,
+      "soft_min": 0.0,
+      "soft_max": 0.28,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "steer_FL_deg": {
+      "subtype": "NONE",
+      "description": "FL swerve module azimuth, degrees CCW (0 = wheel rolling forward).",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -180.0,
+      "soft_max": 180.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "drive_FL_deg": {
+      "subtype": "NONE",
+      "description": "FL wheel rotation, degrees (positive rolls the robot forward when steer = 0). distance = radians * 0.0508 m.",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -3600.0,
+      "soft_max": 3600.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "steer_FR_deg": {
+      "subtype": "NONE",
+      "description": "FR swerve module azimuth, degrees CCW (0 = wheel rolling forward).",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -180.0,
+      "soft_max": 180.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "drive_FR_deg": {
+      "subtype": "NONE",
+      "description": "FR wheel rotation, degrees (positive rolls the robot forward when steer = 0). distance = radians * 0.0508 m.",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -3600.0,
+      "soft_max": 3600.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "steer_BL_deg": {
+      "subtype": "NONE",
+      "description": "BL swerve module azimuth, degrees CCW (0 = wheel rolling forward).",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -180.0,
+      "soft_max": 180.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "drive_BL_deg": {
+      "subtype": "NONE",
+      "description": "BL wheel rotation, degrees (positive rolls the robot forward when steer = 0). distance = radians * 0.0508 m.",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -3600.0,
+      "soft_max": 3600.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "steer_BR_deg": {
+      "subtype": "NONE",
+      "description": "BR swerve module azimuth, degrees CCW (0 = wheel rolling forward).",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -180.0,
+      "soft_max": 180.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "drive_BR_deg": {
+      "subtype": "NONE",
+      "description": "BR wheel rotation, degrees (positive rolls the robot forward when steer = 0). distance = radians * 0.0508 m.",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -3600.0,
+      "soft_max": 3600.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "feeder_rollers_deg": {
+      "subtype": "NONE",
+      "description": "Feeder (under-turret) roller rotation (degrees).",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -36000.0,
+      "soft_max": 36000.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "intake_rollers_deg": {
+      "subtype": "NONE",
+      "description": "Intake roller rotation (degrees). Key linearly to spin.",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -36000.0,
+      "soft_max": 36000.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "shooter_wheels_deg": {
+      "subtype": "NONE",
+      "description": "Shooter flywheel/roller rotation (degrees). Key linearly to spin.",
+      "min": -3.4028234663852886e+38,
+      "max": 3.4028234663852886e+38,
+      "soft_min": -36000.0,
+      "soft_max": 36000.0,
+      "step": 10.0,
+      "precision": 3,
+      "default": 0.0
+    },
+    "bumper_blue": {
+      "subtype": "NONE",
+      "description": "Bumper colour: 0 = red alliance, 1 = blue alliance (default, as in the team photo).",
+      "min": 0.0,
+      "max": 1.0,
+      "soft_min": 0.0,
+      "soft_max": 1.0,
+      "step": 1.0,
+      "precision": 3,
+      "default": 0.0
+    }
+  }
+}
