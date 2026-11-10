@@ -11,6 +11,8 @@ No image textures are used, so the .blend is self-contained.
 """
 
 import colorsys
+import json
+import os
 import re
 
 import bpy
@@ -194,7 +196,7 @@ def _color_word(color):
 
 
 COLORLESS = {"aluminum", "steel", "black_oxide", "brass", "polycarb", "fabric", "plywood",
-             "polycarb_smoked"}
+             "polycarb_smoked", "polypropylene"}
 
 
 def make(cls, color=(0.5, 0.5, 0.5)):
@@ -305,6 +307,13 @@ def polycarb(c=(0.9, 0.92, 0.95)):
     return _finish(m, (0.8, 0.85, 0.9))
 
 
+def polypropylene(c=(0.92, 0.92, 0.9)):
+    """Natural/white polypropylene sheet: milky and slightly translucent."""
+    m = _new(f"Polypropylene - {_color_name(c)}")
+    _set(_bsdf(m), base=(0.9, 0.9, 0.88), metallic=0.0, rough=0.38, subsurface=0.35, spec=0.45)
+    return _finish(m, (0.9, 0.9, 0.88))
+
+
 def polycarb_smoked(_c=None):
     """Smoked/tinted polycarbonate panels (side walls, intake walls)."""
     m = _new("Polycarbonate - Smoked")
@@ -378,7 +387,7 @@ BUILDERS = {
     "black_oxide": black_oxide, "brass": brass, "plastic": plastic, "print": print3d,
     "rubber": rubber, "urethane": urethane, "hdpe": hdpe, "acetal": acetal,
     "polycarb": polycarb, "fabric": fabric, "electronics": electronics, "plywood": plywood,
-    "polycarb_smoked": polycarb_smoked,
+    "polycarb_smoked": polycarb_smoked, "polypropylene": polypropylene,
 }
 
 # --------------------------------------------------------------------------
@@ -474,6 +483,80 @@ def _is_smoked_sheet(o, color):
     return o["_t"] <= SMOKED_MAX_THICKNESS_M
 
 
+# --------------------------------------------------------------------------
+# Onshape BOM materials (source/onshape_bom_materials.json, from
+# fetch_bom_materials.py). Used for team-made parts only: vendor parts are
+# better served by their names (some vendor CAD carries odd materials).
+# --------------------------------------------------------------------------
+
+BOM_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "source",
+                        "onshape_bom_materials.json")
+TEAM_PART_RE = re.compile(r"^(Part \d+|Spindexer (Base Plate|Wall|Collar)|PDP Cutout Panel|"
+                          r"Spindexer Shaft Retention|.*3D ?printed.*|.*3DP.*)$", re.I)
+_bom = None
+
+
+def _strip_top(name):
+    return re.sub(r"^\d+\s*-\s*", "", re.sub(r"\s*<\d+>$", "", name or "")).strip()
+
+
+def _load_bom():
+    global _bom
+    if _bom is None:
+        _bom = {}
+        if os.path.exists(BOM_FILE):
+            seen = {}
+            for r in json.load(open(BOM_FILE))["parts"]:
+                key = (_strip_top(r["top"]), r["name"])
+                val = (r["material"], r["color"])
+                if key in seen and seen[key] != val:
+                    _bom[key] = None          # ambiguous: same name, different material
+                else:
+                    seen[key] = val
+                    _bom.setdefault(key, val)
+    return _bom
+
+
+def _rgb(hx):
+    return tuple(int(hx[i:i + 2], 16) / 255.0 for i in (1, 3, 5))
+
+
+def bom_material(o):
+    """(class, colour) from the Onshape BOM material, or None."""
+    name = o.get("onshape_name", o.name)
+    if not TEAM_PART_RE.match(name):
+        return None
+    top = _strip_top(o.get("onshape_path", "").split(" / ")[0])
+    hit = _load_bom().get((top, name))
+    if not hit or not hit[0] or hit[0] in ("N/A",):
+        return None
+    mat, hx = hit
+    c = _rgb(hx) if hx else (0.5, 0.5, 0.5)
+    h, s, v = _hsv(c)
+    m = mat.lower()
+    if "polycarbonate" in m:
+        return ("polycarb_smoked", c) if v < 0.6 else ("polycarb", c)
+    if "polypropylene" in m:
+        return ("polypropylene", c) if v > 0.6 else ("plastic", c)
+    if "nylon" in m or "acetal" in m or "delrin" in m:
+        return ("acetal", c)
+    if "onyx" in m:
+        return ("print", (0.045, 0.045, 0.048))
+    if m in ("pla", "abs", "petg", "tpu") or "3d printed" in m:
+        return ("print", c)
+    if "aluminum" in m or m.startswith("6061") or m.startswith("7075") or m.startswith("5052"):
+        return ("aluminum", c) if v > 0.5 else ("anodized", c)
+    if "steel" in m:
+        return ("steel", c) if v > 0.3 else ("black_oxide", c)
+    if "hdpe" in m:
+        return ("hdpe", c)
+    if "birch" in m or "plywood" in m:
+        return ("plywood", c)
+    if m.startswith("eva"):
+        return ("fabric", c)
+    return None
+
+
 _override_index = {}
 
 
@@ -488,6 +571,9 @@ def classify(o, color):
     if hx in COLOR_OVERRIDES:
         cls, real = COLOR_OVERRIDES[hx]
         return cls, real or color
+    b = bom_material(o)
+    if b:
+        return b
     path = o.get("onshape_path", "")
     for sub, cls in SUBSYSTEM_RULES:
         if sub in path:

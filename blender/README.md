@@ -11,6 +11,7 @@ Every mechanism moves from one set of sliders, in the same units the robot code 
 | `ARTEMIS.blend` | The scene (~44 MB, Git LFS). Open with **Blender 5.2 LTS** or newer. GitHub does not store LFS files in forks, so this file is **not committed in `natebrix/2026-Rebuilt`**. Get it from [natebrix/artemis-blender](https://github.com/natebrix/artemis-blender), which is the main home of this project, or build it (see [Rebuilding](#rebuilding), ~35 s). |
 | `build_artemis.py` | Rebuilds `ARTEMIS.blend` from `source/`: import, cleanup, rig, materials, studio, demo animation. |
 | `materials.py` | Procedural material library and the rules that map each part to a material. |
+| `fetch_bom_materials.py` | Downloads each part's Onshape material and appearance from the public share into `source/onshape_bom_materials.json`. No API key is needed. |
 | `render_previews.py` | Renders a still of any pose or animation frame from the command line. |
 | `artemis_joints.json` | Every joint's parent, origin, axis and control property, for simulation or other tools. |
 | `source/` | Input GLBs: a copy of `assets/Robot_Artemis` from the `unstable` branch. This is the export of May 19 2026, commit `1368dc9`. The files are byte-identical to those on `unstable`, so git stores them only once. |
@@ -121,6 +122,7 @@ If the layout changes, edit `COMPONENT_FILES` at the top of `build_artemis.py`.
 
 * `NAME_RULES` maps part names to material types.
 * `PHOTO_OVERRIDES` and `COLOR_OVERRIDES` handle one-off fixes.
+* Team-made parts (`Part 12`, `Spindexer Wall`, ...) use the material set in Onshape when the public share has one. Re-run `python fetch_bom_materials.py` after materials change in Onshape.
 * Colours such as `BUMPER_BLUE` and `SMOKE_TINT` are at the top of the file.
 
 ## How it was built and how accurate it is
@@ -138,16 +140,21 @@ If the layout changes, edit `COMPONENT_FILES` at the top of `build_artemis.py`.
   * spindexer (0.0472, 0, 0.0619).
 
   The hood's logged pose uses an offset reference point. The true pivot it implies is the flywheel shaft at (y, z) = (−0.0975, 0.4953), and that is what the rig uses. Swerve axes come from the geometry: the modules sit at (±0.264, ±0.289). Limits are taken from the code's clamps.
-* **Materials.** Materials come from the part names, the Onshape colours, and the team photo. That covers the smoked polycarbonate walls, blue bumpers with white numbers, the brass/blue/green flywheel stack, black prints, and machined aluminium plate and tube.
+* **Materials.** Materials come from four sources:
+  * the Onshape *Material* property of team-made parts (smoked and clear polycarbonate, white polypropylene, nylon, Onyx and other prints, birch, EVA),
+  * vendor part names,
+  * the Onshape colours,
+  * the team photo and reveal video (blue bumpers with white "4915" on all four sides, the brass/blue/green flywheel stack, black prints).
 
 ### Known limitations
 
 * **Climber travel.** The 0.28 m travel is estimated from the tube lengths, because the climber code has been removed.
-* **Not in the CAD.** These parts of the real robot are missing: the front smoked panel with the ARTEMIS logo, the sponsor decals, wiring and cable sleeves.
-* **Guessed materials.** Some team-made parts are guesses from their CAD colour. For example, white CAD parts became white HDPE or white prints.
+* **Intake hopper walls.** On the robot, the deployed intake forms a tall box: smoked polycarbonate side walls plus a front wall. The newer Onshape version has them as Parts 32, 34 and 35 of `32 - 2026 Intake V2`. They are **not** in the May export, so the model only shows the intake's low side plates.
+* **Not in the CAD at all.** The sponsor and ARTEMIS decals, wiring and cable sleeves.
+* **Guessed materials.** Team-made parts with no material set in Onshape are guessed from their CAD colour. For example, white CAD parts became white HDPE or white prints.
 * **Mechanism motion.** All roller ratios are 1. Belts and chains don't animate.
 * **Triangle count.** The scene has 2.5 M triangles, which is fine for stills and animation. For real-time use or physics, decimate the meshes or build simple collision shapes.
-* **Newer CAD versions.** The model is the May 2026 export. The newer public Onshape share (version `d5fdcfd9…`) may differ; to use it, export the same five files and rebuild.
+* **Newer CAD versions.** The model is the May 2026 export. The newer public Onshape share (version `d5fdcfd9…`) adds at least the intake hopper walls. To use it, export the same five files and rebuild.
 
 ## Simulation
 

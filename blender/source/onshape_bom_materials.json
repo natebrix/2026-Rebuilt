@@ -1,0 +1,3211 @@
+{
+ "source": "https://cad.onshape.com/documents/16efabe4144263150bdc02ed/v/d5fdcfd93aef43e72bcdf30d/e/09aa24f6cfc5e3210ecfc998",
+ "parts": [
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.1",
+   "name": "Driverail 2\"x1\"x17.5\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.2",
+   "name": "Driverail 2\"x1\"x17.5\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.3",
+   "name": "Driverail 2\"x1\"x19.5\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.4",
+   "name": "Driverail 2\"x1\"x19.5\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.5",
+   "name": "Bellypan",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6",
+   "name": "SDS MK5n",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.1",
+   "name": "SDS MK5n Top Assembly (A)",
+   "material": "SDS MK5 Components",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.2",
+   "name": "SDS MK5 Turret Assembly",
+   "material": "SDS MK5 Components",
+   "color": "#e5e9ec"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.3",
+   "name": "SDS MK5 Molded Wheel",
+   "material": "SDS MK5 Components",
+   "color": "#7f7f7f"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.4",
+   "name": "Kraken X44 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.5",
+   "name": "Kraken X60 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.6",
+   "name": "#10-32 x 0.375\" L BHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.7",
+   "name": "SDS MK5 L Plate",
+   "material": "Aluminum - 7075",
+   "color": "#e5eaed"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.8",
+   "name": "#10-32 x 2-1/2\" L SHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.6.9",
+   "name": "SDS MK5 Corner Block",
+   "material": "Aluminum - 6061",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7",
+   "name": "SDS MK5n",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.1",
+   "name": "SDS MK5n Top Assembly (A)",
+   "material": "SDS MK5 Components",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.2",
+   "name": "SDS MK5 Turret Assembly",
+   "material": "SDS MK5 Components",
+   "color": "#e5e9ec"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.3",
+   "name": "SDS MK5 Molded Wheel",
+   "material": "SDS MK5 Components",
+   "color": "#7f7f7f"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.4",
+   "name": "Kraken X44 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.5",
+   "name": "Kraken X60 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.6",
+   "name": "#10-32 x 0.375\" L BHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.7",
+   "name": "SDS MK5 L Plate",
+   "material": "Aluminum - 7075",
+   "color": "#e5eaed"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.8",
+   "name": "#10-32 x 2-1/2\" L SHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.7.9",
+   "name": "SDS MK5 Corner Block",
+   "material": "Aluminum - 6061",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.8",
+   "name": "#10-32 x 3/8\" L SHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.9",
+   "name": "Tube 2\"x1\"x26\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.10",
+   "name": "WCP-0297",
+   "material": null,
+   "color": "#dde8ff"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.11",
+   "name": "#10-32 x 1-3/8\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.12",
+   "name": "#10-32 Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.13",
+   "name": "3D printed box crush",
+   "material": "PLA",
+   "color": "#666666"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.14",
+   "name": "3D printed box crush",
+   "material": "PLA",
+   "color": "#666666"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.15",
+   "name": "PDP 2.0",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.15.1",
+   "name": "PDP 2.0",
+   "material": null,
+   "color": "#fab601"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.15.2",
+   "name": "40A ATO Auto-Resetting Breaker",
+   "material": null,
+   "color": "#f78601"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.16",
+   "name": "roboRIO 2.0",
+   "material": null,
+   "color": "#787880"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.17",
+   "name": "Pigeon 2.0",
+   "material": null,
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.18",
+   "name": "Part 11",
+   "material": null,
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.19",
+   "name": "Part 10",
+   "material": null,
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.20",
+   "name": "Nut Strip (1/2\" Square ,1\"  , #10-32 Tapped, Alternating .5\" Hole Spacing)",
+   "material": "Aluminum - 6061",
+   "color": "#c5c5c5"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.21",
+   "name": "120A Main Breaker",
+   "material": null,
+   "color": "#4b4b4b"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.22",
+   "name": "#10-32 x 5/8\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.23",
+   "name": "Part 12",
+   "material": null,
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.24",
+   "name": "Robot Battery",
+   "material": null,
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.25",
+   "name": "HDPE Skid",
+   "material": "HDPE (High-Density Polyethylene)",
+   "color": "#303030"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.26",
+   "name": "HDPE Skid",
+   "material": "HDPE (High-Density Polyethylene)",
+   "color": "#303030"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.27",
+   "name": "Bumper Mounts",
+   "material": null,
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.28",
+   "name": "3/16\" Blind Rivet (.250\" - .438\" Grip Length, Aluminum)",
+   "material": "Aluminum - 5052",
+   "color": "#e5eaed"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.29",
+   "name": "3/8 OD Spacer - battery plate",
+   "material": "Aluminum - 6061",
+   "color": "#303030"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.30",
+   "name": "1/4-20  x 1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.31",
+   "name": "#10-32 x 3/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "21 - 2026 Drivebase",
+   "item": "1.32",
+   "name": "#10-32 Thin Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.1",
+   "name": "Spindexer Base Plate",
+   "material": "Polycarbonate",
+   "color": "#ffffff"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.2",
+   "name": "Spindexer Wall",
+   "material": "Polycarbonate",
+   "color": "#303030"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.3",
+   "name": "PDP Cutout Panel",
+   "material": "Polycarbonate",
+   "color": "#ffffff"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.4",
+   "name": "Bottom Plate of PDP Panel",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.5",
+   "name": "3DP Wall Rigidity Piece",
+   "material": "3D Printed ABS",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.6",
+   "name": "Feeder Side 3DP Rigidity",
+   "material": "3D Printed ABS",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.7",
+   "name": "Other feeder side 3DP rigidity",
+   "material": "3D Printed ABS",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.8",
+   "name": "4 in. Churro Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.9",
+   "name": "2.125 in. Churro Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.10",
+   "name": "10-32 Spacer",
+   "material": null,
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.11",
+   "name": "1/4-20 Spacer",
+   "material": null,
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.12",
+   "name": "0.5 in. Round Spacer",
+   "material": "3D Printed ABS",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.13",
+   "name": "0.5 in. Round Spacer 1/4-20",
+   "material": "Onyx",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.14",
+   "name": "Kraken X60 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15",
+   "name": "MAXPlanetary (REV)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15.1",
+   "name": "MAXPlanetary Input Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15.2",
+   "name": "Kraken Spline MAXPlanetary Input Coupler",
+   "material": null,
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15.3",
+   "name": "#10-32 x 0.375\" L SHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15.4",
+   "name": "MAXPlanetary 4:1 Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15.5",
+   "name": "MAXPlanetary 3:1 Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15.6",
+   "name": "#10-32 x 1.5\" L SHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15.7",
+   "name": "MAXPlanetary Output Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.15.8",
+   "name": "#10-32 x 0.5\" L BHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.16",
+   "name": "1.5 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.17",
+   "name": "10.443 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.18",
+   "name": "Printed Insert",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.19",
+   "name": "24t Custom HTD 5mm Pulley (0.375\" Wide, 1/2\" Hex Bore w/ TTB Insert )",
+   "material": "3D Printed PLA",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.20",
+   "name": "24t Custom HTD 5mm Pulley (0.375\" Wide, 1/2\" Hex Bore w/ TTB Insert )",
+   "material": "3D Printed PLA",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.21",
+   "name": "1/2\" Hex Shaft Spacer (1/4\" L, 3/4\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.22",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,2.828\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.23",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.375\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.24",
+   "name": "1/2\" Hex Shaft Spacer (1/16\" L, 3/4\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.25",
+   "name": "1/2\" Rounded Hex (13.75mm) ID Bearing (1.125\" OD, 0.313\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.26",
+   "name": "Bearing Retention Plate",
+   "material": "Glass-filled nylon (35%)",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.27",
+   "name": "135T 5M 9mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.28",
+   "name": "1/4-20  x 2-1/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.29",
+   "name": "#10-32 Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.30",
+   "name": "#10-32 x 1\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.31",
+   "name": "#10-32 x 7/8\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.32",
+   "name": "#10-32 x 2-1/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.33",
+   "name": "#10-32 x 3/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.34",
+   "name": "#8-32 Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.35",
+   "name": "#10-32 x 0.25\" L Straight Heat Set Insert",
+   "material": "Brass",
+   "color": "#f6d681"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.36",
+   "name": "#8-32 x 1/2\" L FHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.37",
+   "name": "#10-32 x 3/8\" L FHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.38",
+   "name": "#8-32 x 1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.39",
+   "name": "#10 Washer (5/8\" OD, 0.031\" WD, Steel, Black Zinc)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.40",
+   "name": "#10-32 x 0.5\" L Shaft End Screw (V2, Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.41",
+   "name": "Center Cone",
+   "material": null,
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.42",
+   "name": "4\" Compliant Star (50A, 1/2\" Hex Bore)",
+   "material": "Polyurethane",
+   "color": "#334da3"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.43",
+   "name": "Bottom 3D Printed Omni Wheel Spacer",
+   "material": "3D Printed ONYX",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.44",
+   "name": "1/2\" Hex MotionX Hub (1.125\" OD, #10-32 Clearance)",
+   "material": "Aluminum - 7075",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.45",
+   "name": "0.25\" ID Bearing (0.5\" OD, 0.188\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.46",
+   "name": "Sushi Roller (35A, 1/2\" Hex Bore)",
+   "material": "Polycarbonate",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.47",
+   "name": "1.75\" 1/4\" OD Aluminum Pin",
+   "material": "Aluminum - 6061",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.48",
+   "name": "Top 3D Printed Omni Wheel Spacer",
+   "material": "3D Printed ONYX",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.49",
+   "name": "Part 2",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.50",
+   "name": "Part 3",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.51",
+   "name": "Part 4",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.52",
+   "name": "Part 8",
+   "material": null,
+   "color": "#43484d"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.53",
+   "name": "Part 9",
+   "material": null,
+   "color": "#43484d"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.54",
+   "name": "#10-32 x 0.5\" L Shaft End Screw (V2, Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.55",
+   "name": "Socket button head cap screw 1/4-20 x 0.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "51 - 2026 Indexer",
+   "item": "2.56",
+   "name": "Socket button head cap screw #10-32 x 2.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.1",
+   "name": "Outer Tube",
+   "material": "Aluminum - 6061",
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.2",
+   "name": "Inner Tube",
+   "material": "Aluminum - 6061",
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.3",
+   "name": "Support Tube",
+   "material": "Aluminum - 6061",
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.4",
+   "name": "CIB Bearing Kit (AM)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.4.1",
+   "name": "CIB 1.5\" to 1\" Bearing Kit Internal Block (AM)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.5",
+   "name": "CIB Bearing Kit (AM)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.5.1",
+   "name": "CIB 1.5\" to 1\" Bearing Kit External Block (AM)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.6",
+   "name": "1/2\" Rounded Hex (13.75mm) ID Bearing (1.125\" OD, 0.313\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.7",
+   "name": "Brace/Motor Mount Plate",
+   "material": "Aluminum - 6061",
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.8",
+   "name": "Gusset",
+   "material": "Aluminum - 6061",
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.9",
+   "name": "am-4644 Climber In A Box 1.5IN Bearing Plate_1",
+   "material": "Aluminum - 6061",
+   "color": "#eaeaea"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.10",
+   "name": "Kraken X60 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11",
+   "name": "MAXPlanetary (REV)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11.1",
+   "name": "MAXPlanetary Input Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11.2",
+   "name": "Kraken Spline MAXPlanetary Input Coupler",
+   "material": null,
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11.3",
+   "name": "#10-32 x 0.375\" L SHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11.4",
+   "name": "MAXPlanetary 3:1 Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11.5",
+   "name": "MAXPlanetary 5:1 Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11.6",
+   "name": "MAXPlanetary 4:1 Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11.7",
+   "name": "#10-32 x 2\" L SHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.11.8",
+   "name": "MAX 90 Degree Gearbox",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.12",
+   "name": "1/2\" Rounded Hex (4\" L, 13.75mm OD)",
+   "material": "Aluminum - 7075",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.13",
+   "name": "1-Stage CIB Winch Spool Pulley (1.1875\" WD, 1/2\" Hex Bore)",
+   "material": "Aluminum - 6061",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.14",
+   "name": "1/2\" Hex Shaft Spacer (1/16\" L, 3/4\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.15",
+   "name": "1/2\" Hex Shaft Spacer (1/32\" L, 3/4\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.16",
+   "name": "#10-32 x 2-1/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.17",
+   "name": "#10-32 x 0.5\" L Shaft End Screw (V2, Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.18",
+   "name": "#10-32 x 3/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.19",
+   "name": "#10-32 x 1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.20",
+   "name": "#10-32 x 1-1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.21",
+   "name": "#10-32 Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.22",
+   "name": "#10 Aluminum Spacer (1-3/8\" L, 3/8\" OD)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.23",
+   "name": "#10 Aluminum Spacer (1-1/2\" L, 3/8\" OD)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.24",
+   "name": "0.196\" ID Custom Spacer (0.375\" OD,1\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.25",
+   "name": "0.196\" ID Custom Spacer (0.375\" OD,0.875\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.26",
+   "name": "3/16\" Blind Rivet (.250\" - .438\" Grip Length, Aluminum)",
+   "material": "Aluminum - 5052",
+   "color": "#e5eaed"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.27",
+   "name": "Nylock Retention 3DP",
+   "material": null,
+   "color": "#4d4d4d"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.28",
+   "name": "Gusset Spacer 3DP",
+   "material": null,
+   "color": "#4d4d4d"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.29",
+   "name": "Hook Plate V3",
+   "material": "Aluminum - 6061",
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.30",
+   "name": "Crush Block",
+   "material": null,
+   "color": "#4d4d4d"
+  },
+  {
+   "top": "81 - 2026 Climber",
+   "item": "3.31",
+   "name": "Hook Spacer 3DP V3",
+   "material": null,
+   "color": "#4d4d4d"
+  },
+  {
+   "top": "92 - 2026 Bumpers",
+   "item": "4.1",
+   "name": "Part 2",
+   "material": "EVA 6",
+   "color": "#3e57ab"
+  },
+  {
+   "top": "92 - 2026 Bumpers",
+   "item": "4.2",
+   "name": "Part 3",
+   "material": "EVA 6",
+   "color": "#3e57ab"
+  },
+  {
+   "top": "92 - 2026 Bumpers",
+   "item": "4.3",
+   "name": "Part 16",
+   "material": "Birch",
+   "color": "#d9c3a1"
+  },
+  {
+   "top": "92 - 2026 Bumpers",
+   "item": "4.4",
+   "name": "Part 18",
+   "material": "Birch",
+   "color": "#d9c3a1"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.1",
+   "name": "3\" Flex Wheel (30A, 1\" Wide, 1.25\" Round Stretch Bore)",
+   "material": "Silicone Rubber",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.2",
+   "name": "2\" Thrifty Squish Wheel (45A, 1\" Wide, 1/2\" Hex Bore)",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.3",
+   "name": "60t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.4",
+   "name": "54t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.5",
+   "name": "28t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.6",
+   "name": "16t Steel Spur Gear (20 DP, 1/2\" Rounded Hex Bore)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.7",
+   "name": "12t Steel Spur Gear (20 DP, SplineXS Bore)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.8",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,1.25\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.9",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.125\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.10",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.437\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.11",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.062\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.12",
+   "name": "#10-32 x 2-1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.13",
+   "name": "#10-32 x 3/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.14",
+   "name": "1/2\" Hex Clamping Shaft Collar (Split)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.15",
+   "name": "Kraken X44 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.16",
+   "name": "WCP Through Bore Encoder",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.17",
+   "name": "Intake Pivot SplineXS Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.18",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.047\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.19",
+   "name": "Part 32",
+   "material": "Polycarbonate",
+   "color": "#43484d"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.20",
+   "name": "Part 34",
+   "material": "Polycarbonate",
+   "color": "#43484d"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.21",
+   "name": "Nut Strip (1/2\" Square ,1\"  , #10-32 Tapped, Alternating .5\" Hole Spacing)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.22",
+   "name": "Part 35",
+   "material": "Polycarbonate",
+   "color": "#43484d"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.23",
+   "name": "Part 42",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.24",
+   "name": "28t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.25",
+   "name": "1 in. Round Spacer",
+   "material": "Onyx",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.26",
+   "name": "1 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.27",
+   "name": "1.813 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.28",
+   "name": "2.062 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.29",
+   "name": "25.969 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.30",
+   "name": "26.25 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.31",
+   "name": "3 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.32",
+   "name": "45T 5M 15mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.33",
+   "name": "70T 5M 15mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.34",
+   "name": "80L #25 Chain",
+   "material": "Steel",
+   "color": "#7f7f7f"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.35",
+   "name": "Part 2",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.36",
+   "name": "Part 5",
+   "material": "Polypropylene",
+   "color": "#ffffff"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.37",
+   "name": "Part 6",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.38",
+   "name": "Part 9",
+   "material": "Polycarbonate",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.39",
+   "name": "Part 11",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.40",
+   "name": "Part 21",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.41",
+   "name": "Part 23",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.42",
+   "name": "Part 24",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.43",
+   "name": "Part 25",
+   "material": "Polypropylene",
+   "color": "#ffffff"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.44",
+   "name": "Part 27",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.45",
+   "name": "Part 29",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.46",
+   "name": "Part 36",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.47",
+   "name": "Part 37",
+   "material": "Nylon ",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.48",
+   "name": "Part 38",
+   "material": "Nylon ",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.49",
+   "name": "Part 43",
+   "material": "Polycarbonate",
+   "color": "#ffffff"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.50",
+   "name": "Part 45",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.51",
+   "name": "Part 46",
+   "material": null,
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.52",
+   "name": "Part 47",
+   "material": "Aluminum - 7075",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.53",
+   "name": "Part 48",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.54",
+   "name": "Part 49",
+   "material": "Polycarbonate",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.55",
+   "name": "pivot gearbox spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.56",
+   "name": "pivot gearbox spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.57",
+   "name": "1/2\" Rounded Hex (13.75mm) ID Bearing (1.125\" OD, 0.313\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.58",
+   "name": "36t Aluminum Plate Sprocket (#25, 1.125\" Round Bore)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.59",
+   "name": "Aluminum Tube Plug (1\" x 1\" x 1/8\")",
+   "material": "Aluminum - 6061",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.60",
+   "name": "0.375\" ID Bearing (0.875\" OD, 0.281\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.61",
+   "name": "Socket button head cap screw #10-32 x 0.625",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.62",
+   "name": "#10-32 Thin Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.63",
+   "name": "1.688 in. Round Spacer",
+   "material": "Onyx",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.64",
+   "name": "Kraken X60 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.65",
+   "name": "MAXPlanetary (REV)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.65.1",
+   "name": "MAXPlanetary Input Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.65.2",
+   "name": "Kraken Spline MAXPlanetary Input Coupler",
+   "material": null,
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.65.3",
+   "name": "#10-32 x 0.375\" L SHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.65.4",
+   "name": "MAXPlanetary 3:1 Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.65.5",
+   "name": "#10-32 x 1\" L SHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.65.6",
+   "name": "MAXPlanetary Output Slice",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.65.7",
+   "name": "#10-32 x 0.5\" L BHCS (Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.66",
+   "name": "1/2\" ThunderHex (1.701 in)",
+   "material": "7075 Aluminum",
+   "color": "#a5a5a5"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.67",
+   "name": "20t Custom HTD 5mm Pulley (0.734\" Wide, 1/2\" Hex Bore w/ TTB Insert )",
+   "material": "3D Printed PLA",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.68",
+   "name": "3D-Print Adapter (1/2\" Hex Bore, Thrifty Profile)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.69",
+   "name": "12t Steel Sprocket (#25, 1/2\" Rounded Hex Bore, Double Hub)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.70",
+   "name": "Socket button head cap screw #10-32 x 1.75",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.71",
+   "name": "Socket button head cap screw #10-32 x 3.25",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.72",
+   "name": "3/16\" Blind Rivet (.250\" - .438\" Grip Length, Aluminum)",
+   "material": "Aluminum - 5052",
+   "color": "#e5eaed"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.73",
+   "name": "Socket button head cap screw #10-32 x 0.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.74",
+   "name": "20t Pulley w/ 1-1/8\" OD Aluminum Stub Roller Hub (5mm HTD)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.75",
+   "name": "1/2\" OD Stub Roller Shaft (2-1/4\" L)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.76",
+   "name": "7/8\" Internal Retaining Ring",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.77",
+   "name": "Socket button head cap screw #10-32 x 0.375",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.78",
+   "name": "1-1/8\" OD Aluminum Stub Roller Hub",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.79",
+   "name": "1/2\" OD Stub Roller Shaft (1-3/4\" L)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.80",
+   "name": "Socket button head cap screw 1/4-20 x 2.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.81",
+   "name": "Socket button head cap screw 1/4-20 x 0.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.82",
+   "name": "Socket button head cap screw 1/4-20 x 2",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.83",
+   "name": "Socket button head cap screw #10-32 x 0.75",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.84",
+   "name": "#10-32 x 0.5\" L Shaft End Screw (V2, Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.85",
+   "name": "Socket button head cap screw #10-32 x 2.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.86",
+   "name": "Socket button head cap screw #10-32 x 1.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.87",
+   "name": "#10-32 Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.88",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.187\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.89",
+   "name": "#25 Chain Spartan Tensioner (WCP)",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.90",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.275\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.91",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,1.3\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "32 - 2026 Intake V2",
+   "item": "5.92",
+   "name": "Part 53",
+   "material": null,
+   "color": "#43484d"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.1",
+   "name": "Part 5",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.2",
+   "name": "Part 2",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.3",
+   "name": "Part 3",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.4",
+   "name": "Part 4",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.5",
+   "name": "Part 8",
+   "material": "Polypropylene",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.6",
+   "name": "Part 7",
+   "material": "ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.7",
+   "name": "Part 22",
+   "material": null,
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.8",
+   "name": "54t Pocketed Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.9",
+   "name": "15t Aluminum Pulley (HTD 5mm, 15mm Wide, 1/2\" Hex Bore)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.10",
+   "name": "16t Steel Spur Gear (20 DP, SplineXS Bore)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.11",
+   "name": "36t Aluminum Pulley (HTD 5mm, 15mm Wide, 1/2\" Hex Bore)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.12",
+   "name": "30t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.13",
+   "name": "20t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.14",
+   "name": "6.938 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.15",
+   "name": "8.125 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.16",
+   "name": "8.25 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.17",
+   "name": "12t Steel Spur Gear (20 DP, SplineXS Bore)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.18",
+   "name": "48t Pocketed Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.19",
+   "name": "20t Aluminum Pulley (HTD 5mm, 15mm Wide, 1/2\" Hex Bore)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.20",
+   "name": "15t Aluminum Pulley (HTD 5mm, 9mm Wide, 1/2\" Hex Bore)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.21",
+   "name": "7 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.22",
+   "name": "7.563 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.23",
+   "name": "Part 19",
+   "material": "PLA",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.24",
+   "name": "20t Custom HTD 5mm Pulley (0.375\" Wide, 1/2\" Hex Bore w/ TTB Insert )",
+   "material": "3D Printed PLA",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.25",
+   "name": "20t Custom HTD 5mm Pulley (0.375\" Wide, 1/2\" Hex Bore w/ TTB Insert )",
+   "material": "3D Printed PLA",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.26",
+   "name": "Part 6",
+   "material": "ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.27",
+   "name": "50T 5M 15mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.28",
+   "name": "125T 5M 9mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.29",
+   "name": "65T 5M 9mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.30",
+   "name": "55T 5M 15mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.31",
+   "name": "4\" Brass Flywheel (1/2\" Triangle Bore)",
+   "material": "Brass",
+   "color": "#f6d681"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.32",
+   "name": "2\" Stealth Wheel (50A, 1/2\" Hex Bore)",
+   "material": null,
+   "color": "#374b8b"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.33",
+   "name": "0.375\" ID Bearing (0.875\" OD, 0.281\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.34",
+   "name": "1/2\" Rounded Hex (13.75mm) ID Bearing (1.125\" OD, 0.313\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.35",
+   "name": "2 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.36",
+   "name": "1.125\" OD Bearing Retention Plate (Inline, 0.5\" C-C)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.37",
+   "name": "0.201\" ID Custom Spacer (0.375\" OD,7.623\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.38",
+   "name": "#10-32 x 1-1/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.39",
+   "name": "#10-32 Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.40",
+   "name": "#10-32 x 3/8\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.41",
+   "name": "Nut Strip (3/8\" Square ,1\"  , #10-32 Tapped, Alternating .5\" Hole Spacing)",
+   "material": "Aluminum - 6061",
+   "color": "#c5c5c5"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.42",
+   "name": "#10-32 x 1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.43",
+   "name": "1/4-20  x 5/8\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.44",
+   "name": "#10-32 x 2-1/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.45",
+   "name": "#10-32 x 2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.46",
+   "name": "#10-32 x 0.5\" L Shaft End Screw (V2, Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.47",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.062\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.48",
+   "name": "0.317\" ID Custom Spacer (0.625\" OD,0.5\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.49",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.125\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.50",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.688\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.51",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.812\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.52",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,1.625\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.53",
+   "name": "0.38\" ID Custom Spacer (0.425\" OD,1.562\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.54",
+   "name": "0.38\" ID Custom Spacer (0.425\" OD,2.061\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.55",
+   "name": "0.196\" ID Custom Spacer (0.375\" OD,1.562\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.56",
+   "name": "0.196\" ID Custom Spacer (0.375\" OD,1.5\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.57",
+   "name": "Kraken X60 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.58",
+   "name": "Kraken X44 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.59",
+   "name": "#10-32 x 1\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.60",
+   "name": "0.4 in. Round Spacer",
+   "material": "Onyx",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.61",
+   "name": "1 in. Round Spacer",
+   "material": "Onyx",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.62",
+   "name": "Cable Snake Mount",
+   "material": "3D Printed ONYX",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.63",
+   "name": "Gearbox Cover",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.64",
+   "name": "Cable Snake Guide",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.65",
+   "name": "#10-32 x 3/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.66",
+   "name": "Limelight 4 Camera",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.67",
+   "name": "Part 28",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.68",
+   "name": "#10-32 x 0.375\" L HeatSet Insert (Brass)",
+   "material": "Brass",
+   "color": "#f6d681"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.69",
+   "name": "#10-32 x 1-3/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.70",
+   "name": "#10-32 x 1-1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.71",
+   "name": "#10-32 Thin Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.72",
+   "name": "1/2\" Hex Shaft Spacer (1/16\" L, 3/4\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.73",
+   "name": "Shaft Hub Insert",
+   "material": "Nylon ",
+   "color": "#b3b3b3"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.74",
+   "name": "Steel Insert",
+   "material": "400 Series Stainless Steel",
+   "color": "#7f7f7f"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.75",
+   "name": "Wheel",
+   "material": "Polyurethane",
+   "color": "#28a9cc"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.76",
+   "name": "Printed Insert",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "72 - 2026 Shooter",
+   "item": "6.77",
+   "name": "4\" Brass Flywheel (1/2\" Triangle Bore)-Mirrored",
+   "material": "Brass",
+   "color": "#f6d681"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.1",
+   "name": "Bandaid Gusset 1",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.2",
+   "name": "Bandaid Gusset 2",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.3",
+   "name": "L Gusset 1",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.4",
+   "name": "L Gusset 2",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.5",
+   "name": "1.562 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.6",
+   "name": "1.688 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.7",
+   "name": "11.919 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.8",
+   "name": "7 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.9",
+   "name": "7.563 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.10",
+   "name": "8.375 in. Rounded Hex Shaft",
+   "material": "Aluminum - 6061",
+   "color": "#4c4c4c"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.11",
+   "name": "Custom 84T 10DP Turret Gear",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.12",
+   "name": "Part 66",
+   "material": null,
+   "color": "#ffffff"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.13",
+   "name": "Feeder Plate Back",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.14",
+   "name": "Feeder Plate Front",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.15",
+   "name": "Inner Echain Wall",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.16",
+   "name": "Inside Bearing Race Clamp Lower",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.17",
+   "name": "Inside Bearing Race Clamp Upper",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.18",
+   "name": "Lower Turret Spacer",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.19",
+   "name": "Outside Bearing Race Clamp Upper",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.20",
+   "name": "Feeder Gearbox Motor Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.21",
+   "name": "Feeder Gearbox Motor Mini Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.22",
+   "name": "Feeder Gearbox Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.23",
+   "name": "Feeder Gearbox Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.24",
+   "name": "Turret Gearbox Bottom Plate",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.25",
+   "name": "Turret Gearbox Top Plate",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.26",
+   "name": "Turret Gearbox Motor Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.27",
+   "name": "Turret Gearbox Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.28",
+   "name": "Turret Gearbox Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.29",
+   "name": "Switcher Gearbox Plate",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.30",
+   "name": "T Gusset 1",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.31",
+   "name": "Top Plate",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.32",
+   "name": "Top Plate Spacer",
+   "material": "3D Printed ONYX",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.33",
+   "name": "Tube 1\"x1\"x13.5\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.34",
+   "name": "Tube 1\"x1\"x28\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.35",
+   "name": "Tube 1\"x1\"x3.968\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.36",
+   "name": "Tube 1\"x1\"x8.138\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.37",
+   "name": "Tube 1\"x1\"x10.638\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.38",
+   "name": "Tube 1\"x1\"x8.638\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.39",
+   "name": "Upper Turret Spacer",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.40",
+   "name": "7\" ID X-Contact Bearing (7.5\" OD, 0.25\" WD, Shielded)",
+   "material": "Alloy Steel",
+   "color": "#cccccc"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.41",
+   "name": "Aluminum Tube Plug (1\" x 1\" x 0.06\" Tube)",
+   "material": "Aluminum - 6061",
+   "color": "#e6e6e6"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.42",
+   "name": "Kraken X60 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.43",
+   "name": "Kraken X44 Brushless Motor",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.43.1",
+   "name": "Kraken X44 Brushless Motor",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.44",
+   "name": "Turret Gearbox Motor Mini Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.45",
+   "name": "1/2\" Rounded Hex (13.75mm) ID Bearing (1.125\" OD, 0.313\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.46",
+   "name": "0.375\" ID Bearing (0.875\" OD, 0.281\" WD, Shielded, Flanged)",
+   "material": "Alloy Steel",
+   "color": "#c6c6c6"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.47",
+   "name": "12t Steel Spur Gear (20 DP, SplineXS Bore)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.48",
+   "name": "9t Steel Spur Gear (20 DP, 10T Center Distance, SplineXS Bore)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.49",
+   "name": "18t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.50",
+   "name": "38t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.51",
+   "name": "34t Aluminum Spur Gear (20 DP, 1/2\" Hex Bore)",
+   "material": "Aluminum - 7075",
+   "color": "#ded3b5"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.52",
+   "name": "1/2\" Hex Shaft Spacer (1/8\" L 3/8\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.53",
+   "name": "20t Custom HTD 5mm Pulley (0.375\" Wide, 1/2\" Hex Bore w/ TTB Insert )",
+   "material": "3D Printed PLA",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.54",
+   "name": "1/2\" Hex Shaft Spacer (1/2\" L 3/8\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.55",
+   "name": "0.317\" ID Custom Spacer (0.625\" OD,0.5\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.56",
+   "name": "1/2\" Hex Shaft Spacer (1/16\" L 3/8\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.57",
+   "name": "11T 10DP Custom Steel Gear",
+   "material": "Steel 4130",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.58",
+   "name": "1/2\" Hex Clamping Shaft Collar (Split)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.59",
+   "name": "Bearing Retention Plate",
+   "material": "Glass-filled nylon (35%)",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.60",
+   "name": "2\" Flex Wheel (30A, 1\" Wide, 1/2\" Hex Bore)",
+   "material": "Silicone Rubber",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.61",
+   "name": "1/2\" Hex Shaft Spacer (2\" L 3/8\" OD, Acetal)",
+   "material": "Acetal (Delrin)",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.62",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,0.625\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.63",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,1.188\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.64",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,1.625\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.65",
+   "name": "1/2\" Hex Bore Custom Spacer (0.75\" OD,2.188\" L)",
+   "material": "3D Printed",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.66",
+   "name": "50T 5M 9mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.67",
+   "name": "50T 5M 9mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.68",
+   "name": "50T 5M 9mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.69",
+   "name": "50T 5M 9mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.70",
+   "name": "115T 5M 9mm Wide Belt",
+   "material": "Neoprene",
+   "color": "#333333"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.71",
+   "name": "#10-32 x 0.5\" L Shaft End Screw (V2, Steel, Black Oxide)",
+   "material": "Carbon Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.72",
+   "name": "3/16\" Blind Rivet (.125\" - .250\" Grip Length, Aluminum)",
+   "material": "Aluminum - 5052",
+   "color": "#e5eaed"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.73",
+   "name": "#10-32 x 1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.74",
+   "name": "#10-32 x 1-3/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.75",
+   "name": "#10-32 x 1-1/2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.76",
+   "name": "Socket button head cap screw #10-32 x 0.625",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.77",
+   "name": "#10-32 x 2\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.78",
+   "name": "92220A155_Alloy Steel Low-Profile Socket Head Screw",
+   "material": "Steel 4130",
+   "color": "#a5a5a5"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.79",
+   "name": "Socket countersunk head cap screw #10-32 x 0.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.80",
+   "name": "Tube 1\"x1\"x16.138\"",
+   "material": "6061-T6",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.81",
+   "name": "Part 55",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.82",
+   "name": "Part 56",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.83",
+   "name": "1.125\" OD Bearing Retention Plate (Inline, 0.5\" C-C)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.84",
+   "name": "WCP Through Bore Encoder",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.85",
+   "name": "Turret Encoder Spacer",
+   "material": "3D Printed ABS",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.86",
+   "name": "#10-32 x 1\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.87",
+   "name": "Robot Radio (VH-109)",
+   "material": null,
+   "color": "#414141"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.88",
+   "name": "Radio Plate",
+   "material": "Aluminum - 6061",
+   "color": "#c0c0c0"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.89",
+   "name": "Nut Strip (1/2\" Square ,1\"  , #10-32 Tapped, Alternating .5\" Hole Spacing)",
+   "material": "Aluminum - 6061",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.90",
+   "name": "Limelight 4 Camera",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.91",
+   "name": "Part 63",
+   "material": "TPU",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.92",
+   "name": "Luma P1",
+   "material": "N/A",
+   "color": null
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.92.1",
+   "name": "Luma P1 (Simplified)",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.92.2",
+   "name": "Airflow Spacer",
+   "material": "3D Printed PLA",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.93",
+   "name": "Luma P1 (Simplified)",
+   "material": null,
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.94",
+   "name": "Airflow Spacer",
+   "material": "3D Printed PLA",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.95",
+   "name": "#10-32 Thin Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.96",
+   "name": "Part 70",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.97",
+   "name": "Part 73",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.98",
+   "name": "Part 74",
+   "material": null,
+   "color": "#ffffff"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.99",
+   "name": "Part 76",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.100",
+   "name": "Cable Snake Guide",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.101",
+   "name": "Part 67",
+   "material": null,
+   "color": "#ffffff"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.102",
+   "name": "Spindexer Shaft Retention",
+   "material": "Polycarbonate",
+   "color": "#eaeaea"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.103",
+   "name": "#10-32 x 3/4\" L BHCS (Steel, Black Oxide)",
+   "material": "Alloy Steel",
+   "color": "#373737"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.104",
+   "name": "3/16\" Blind Rivet (.250\" - .438\" Grip Length, Aluminum)",
+   "material": "Aluminum - 5052",
+   "color": "#e5eaed"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.105",
+   "name": "#10-32 Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.106",
+   "name": "Socket button head cap screw #10-32 x 1.75",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.107",
+   "name": "Socket button head cap screw #10-32 x 2",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.108",
+   "name": "Socket button head cap screw #10-32 x 0.75",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.109",
+   "name": "Socket button head cap screw #10-32 x 2.25",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.110",
+   "name": "Part 5",
+   "material": null,
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.111",
+   "name": "Part 4",
+   "material": null,
+   "color": "#eaeaea"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.112",
+   "name": "Part 3",
+   "material": "Polycarbonate",
+   "color": "#43484d"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.113",
+   "name": "Part 2",
+   "material": "Aluminum - 6061",
+   "color": "#404040"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.114",
+   "name": "Part 1",
+   "material": "Polycarbonate",
+   "color": "#43484d"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.115",
+   "name": "Socket button head cap screw 1/4-20 x 0.375",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.116",
+   "name": "Socket button head cap screw #10-32 x 0.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.117",
+   "name": "Socket button head cap screw #10-32 x 1.5",
+   "material": "Stainless Steel",
+   "color": "#9aa5af"
+  },
+  {
+   "top": "61 - 2026 Turret",
+   "item": "7.118",
+   "name": "#10-32 Thin Nylon-Insert Locknut",
+   "material": "Carbon Steel",
+   "color": "#e1e7ec"
+  }
+ ]
+}
